@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	
+	
+	
+	
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+	<title> Tìm kiếm </title>	
+	<!-- Import Boostrap css, js, font awesome here -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+	<!-- Import font-->
+	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.0/mdb.min.css" rel="stylesheet" />
+
+	<link rel="stylesheet" href="/static/css/style.css">
+	
+
+	
+	<script>
+		function httpGet(theUrl)
+		{
+			var xmlHttp = new XMLHttpRequest();
+			xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+			xmlHttp.send( null );
+			return xmlHttp.responseText;
+		};
+		function myFunction(id) {
+			httpGet(window.location.origin +"/thongbao/" + id + "/read");
+			document.getElementById(id).remove();
+			tmp = document.getElementById('number_mess')
+			tmp.innerText = tmp.innerText -1
+			if (tmp.innerText == '0'){
+				tmp.remove();
+			}
+		};
+	</script>
+</head>
+
+<body>
+	<!--banner-->
+	<div class="banner d-xl-block d-none" style="height:200px; background-image: url('/static/images/banner.png'); background-repeat: no-repeat; background-size: 100% 100%; ">
+		<div class="slogan-tieude">
+			<h2 class="tieude display-4" style="color: white; font-weight: normal; padding-left: 0%;">Web chia sẻ tài
+				liệu</h2>
+			<h2 class="slogan display-5" style="color: white; display: block;">Learning is sharing</h2>
+		</div>
+	</div>
+	<!-- Navbar-->
+	<nav class="navbar navbar-expand-xl navbar-light bg-dark text-light sticky-top">
+		<div class="container-fluid">
+			<button class="navbar-toggler text-light border-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<i class="fas fa-bars"></i>
+		</button>
+
+		<div class="collapse navbar-collapse text-light" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a href="/" class="nav-link text-light">Trang chủ</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link text-light dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Môn đại cương
+					</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/category/GiaoDucDaiCuong/LyLuanChinhTri">Lý luận chính
+								trị</a>
+						<a class="dropdown-item" href="/category/GiaoDucDaiCuong/ToanTinKHTN">Toán-Tin-KHTN</a>
+						<a class="dropdown-item" href="/category/GiaoDucDaiCuong/NgoaiNgu">Ngoại ngữ</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown-csnn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Cơ sở nhóm ngành
+					</a>
+
+					<div class="dropdown-menu">
+						
+						
+						<a class="dropdown-item" href="/subjects/NT132/">Quản trị mạng và hệ thống</a>
+						
+						<a class="dropdown-item" href="/subjects/IT012/">Tổ chức và Cấu trúc Máy tính II</a>
+						
+						<a class="dropdown-item" href="/subjects/IT005/">Nhập môn mạng máy tính</a>
+						
+						<a class="dropdown-item" href="/subjects/IT006/">Kiến trúc máy tính</a>
+						
+						<a class="dropdown-item" href="/subjects/IT003/">Cấu trúc dữ liệu và giải thuật</a>
+						
+						<a class="dropdown-item" href="/subjects/IT002/">Lập trình hướng đối tượng</a>
+						
+						<a class="dropdown-item" href="/subjects/IT007/">Hệ điều hành</a>
+						
+						<a class="dropdown-item" href="/subjects/IT004/">Cơ sở dữ liệu</a>
+						
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown-csn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Cơ sở ngành
+					</a>
+					<div class="dropdown-menu dropdown-primary">
+						<a class="dropdown-item" href="/category/CoSoNganh/CongNghePhanMem">Khoa Công nghệ phần
+							mềm</a>
+						<a class="dropdown-item" href="/category/CoSoNganh/HeThongThongTin">Khoa Hệ thống thông
+							tin</a>
+						<a class="dropdown-item" href="/category/CoSoNganh/MangMayTinhTruyenThong">Khoa MMT&TT </a>
+						<a class="dropdown-item" href="/category/CoSoNganh/KyThuatMayTinh">Khoa Kĩ thuật máy
+							tính</a>
+						<a class="dropdown-item" href="/category/CoSoNganh/KhoaHocMayTinh">Khoa Khoa học máy
+							tính</a>
+						<a class="dropdown-item" href="/category/CoSoNganh/KyThuatThongTin">Khoa KH&KTTT</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown-cn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Môn chuyên ngành
+					</a>
+					<div class="dropdown-menu dropdown-primary">
+						<a class="dropdown-item" href="/category/ChuyenNganh/CongNghePhanMem">Khoa Công nghệ phần
+							mềm</a>
+						<a class="dropdown-item" href="/category/ChuyenNganh/HeThongThongTin">Khoa Hệ thống thông
+							tin</a>
+						<a class="dropdown-item" href="/category/ChuyenNganh/MangMayTinhTruyenThong">Khoa MMT&TT
+						</a>
+						<a class="dropdown-item" href="/category/ChuyenNganh/KyThuatMayTinh">Khoa Kĩ thuật máy
+							tính</a>
+						<a class="dropdown-item" href="/category/ChuyenNganh/KhoaHocMayTinh">Khoa Khoa học máy
+							tính</a>
+						<a class="dropdown-item" href="/category/ChuyenNganh/KyThuatThongTin">Khoa KH&KTTT</a>
+					</div>
+				</li>
+			</ul>
+			
+
+		</div>
+		<form class="form-inline  flex-row my-2 my-lg-0" action="/search/" method="get">
+			<input class="form-control mr-sm-2 p-0 pl-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="search"> 
+			<button class="btn btn-dark d-none d-sm-inline my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+		</form>
+		
+		<ul class="navbar-nav flex-row">
+			<li class="nav-item ">
+				<a class="nav-link p-1 pt-2" href="/dashboard/DongGopTL/">
+					<span><i class="fas fa-plus-circle fa-lg" style="color: rgb(255, 255, 255);"></i></span>
+				</a>
+			</li>
+			<li class="nav-item dropdown me-3 me-lg-1">
+				<a class="nav-link" data-toggle="dropdown" aria-haspopup="true" href="#"	aria-expanded="false">
+					<i class="fas fa-bell fa-lg" style="color: rgb(255, 255, 255);"></i>
+					
+					
+				</a>
+				<div class="dropdown-menu dropdown-menu-right dropdown-default">
+					
+					
+				</div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link p-1 d-sm-flex align-items-sm-center" href="#" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">
+					<img src="/media/avatar/admin.png" class="rounded-circle" width="30" height="30" alt="ảnh đại diện"
+						loading="lazy" />
+					<strong class="d-none d-sm-block ms-1" style="color: rgb(255, 255, 255);">&nbsp;
+						
+						Butterflies
+						
+					</strong>
+				</a>
+				<div class="dropdown-menu dropdown-menu-right dropdown-default"  style="position:absolute">
+					<a class="dropdown-item" href="/ThongTinCaNhan/">Thông tin cá nhân</a>
+					<a class="dropdown-item" href="/dashboard/">Dashboard</a>
+					<a class="dropdown-item" href="/DangXuat/">Đăng xuất</a>
+				</div>
+			</li>
+		</ul>
+		
+		</div>
+		
+	</nav>
+	<!-- Navbar -->
+
+	
+
+	
+	
+
+
+	
+<!-- Navbar -->
+
+<!--Nội dung-->
+
+
+<div class="container h-100  min-vh-100 mb-3 mt-3 ">
+<h4 class="border-bottom text-dark text-lowercase mt-3 pb-2">có 57 kết quả tìm kiếm cho "a"</h4>
+<div class="bg-light pt-3 pb-3 rounded">
+    
+    <div class="col-12 m-1">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="/document/e6eac62d8f01959">Bài tập chương 2 - Đại số tuyến tính</a></h5>
+                <small class="card-text card-subtitle text-muted">
+                    đăng bởi
+                        <span class="text-danger">
+                            
+                            Hồ Thị Ngọc Phúc
+                            
+                        </span>
+                    lúc 20:41
+                    ngày 05
+                    tháng 12
+                    năm 2021
+                </small>
+                <p class="card-text">Bài tập môn Đại số tuyến tính của tác giả Lê Huỳnh Mỹ Vân, Mô tả: Bài tập chương 2
+                    <a href="/document/e6eac62d8f01959">Xem chi tiết...</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 m-1">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="/document/c6e0ae7db61063d">Slide chương 5 cấu trúc rời rạc (P1) - Cấu trúc rời rạc</a></h5>
+                <small class="card-text card-subtitle text-muted">
+                    đăng bởi
+                        <span class="text-danger">
+                            
+                            Lê Tôn Nhân
+                            
+                        </span>
+                    lúc 20:41
+                    ngày 05
+                    tháng 12
+                    năm 2021
+                </small>
+                <p class="card-text">Slide môn Cấu trúc rời rạc của tác giả Cao Thanh Tình, Mô tả: Tài liệu được lấy từ website hoctap.suctremmt do khoa MMT&amp;TT của trường ĐHCNTT
+                    <a href="/document/c6e0ae7db61063d">Xem chi tiết...</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 m-1">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="/document/5eeb0f1e5c9d255">Đề thi cuối kì KTCT - HKII 2020-2021 - Kinh tế chính trị Mác – Lênin</a></h5>
+                <small class="card-text card-subtitle text-muted">
+                    đăng bởi
+                        <span class="text-danger">
+                            
+                            Hồ Thị Ngọc Phúc
+                            
+                        </span>
+                    lúc 20:10
+                    ngày 05
+                    tháng 12
+                    năm 2021
+                </small>
+                <p class="card-text">Đề thi môn Kinh tế chính trị Mác – Lênin của tác giả Nguyễn Hữu Trinh, Mô tả: Đề thi cuối kì KTCT - HKII 2020-2021 - Thầy Nguyễn Hữu Trinh
+                    <a href="/document/5eeb0f1e5c9d255">Xem chi tiết...</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 m-1">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="/document/5ed94084c7ce638">Giáo trình LSĐ - Lịch sử Đảng Cộng sản Việt Nam</a></h5>
+                <small class="card-text card-subtitle text-muted">
+                    đăng bởi
+                        <span class="text-danger">
+                            
+                            Hồ Thị Ngọc Phúc
+                            
+                        </span>
+                    lúc 20:07
+                    ngày 05
+                    tháng 12
+                    năm 2021
+                </small>
+                <p class="card-text">Tài liệu tham khảo môn Lịch sử Đảng Cộng sản Việt Nam của tác giả Trần Thị Châu, Mô tả: Giáo trình lịch sử Đảng của cô Trần Thị Châu
+                    <a href="/document/5ed94084c7ce638">Xem chi tiết...</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 m-1">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="/document/0578361b4c765b8">Bài tập chương 1 - Đại số tuyến tính</a></h5>
+                <small class="card-text card-subtitle text-muted">
+                    đăng bởi
+                        <span class="text-danger">
+                            
+                            Hồ Thị Ngọc Phúc
+                            
+                        </span>
+                    lúc 20:40
+                    ngày 05
+                    tháng 12
+                    năm 2021
+                </small>
+                <p class="card-text">Bài tập môn Đại số tuyến tính của tác giả Lê Huỳnh Mỹ Vân, Mô tả: Bài tập chương 1
+                    <a href="/document/0578361b4c765b8">Xem chi tiết...</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 m-1">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="/document/28e082171106f19">Slide hệ điều hành thầy Duy 2021 (Phần 2) - Hệ điều hành</a></h5>
+                <small class="card-text card-subtitle text-muted">
+                    đăng bởi
+                        <span class="text-danger">
+                            
+                            Ngọc Trưởng
+                            
+                        </span>
+                    lúc 20:25
+                    ngày 05
+                    tháng 12
+                    năm 2021
+                </small>
+                <p class="card-text">Slide môn Hệ điều hành của tác giả Phan Đình Duy, Mô tả: Chương 4: Định thời CPU
+Chương 5: Đồng bộ hoá tiến trình
+Chương 6: Tắc nghẽn
+                    <a href="/document/28e082171106f19">Xem chi tiết...</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 m-1">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="/document/db09fd292fba0f5">Slide chương 2 cấu trúc rời rạc - Cấu trúc rời rạc</a></h5>
+                <small class="card-text card-subtitle text-muted">
+                    đăng bởi
+                        <span class="text-danger">
+                            
+                            Lê Tôn Nhân
+                            
+                        </span>
+                    lúc 20:38
+                    ngày 05
+                    tháng 12
+                    năm 2021
+                </small>
+                <p class="card-text">Slide môn Cấu trúc rời rạc của tác giả Cao Thanh Tình, Mô tả: Tài liệu được lấy từ website hoctap.suctremmt do khoa MMT&amp;TT của trường ĐHCNTT
+                    <a href="/document/db09fd292fba0f5">Xem chi tiết...</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 m-1">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="/document/62a9832761fec29">Slide chương 3 cấu trúc rời rạc - Cấu trúc rời rạc</a></h5>
+                <small class="card-text card-subtitle text-muted">
+                    đăng bởi
+                        <span class="text-danger">
+                            
+                            Lê Tôn Nhân
+                            
+                        </span>
+                    lúc 20:39
+                    ngày 05
+                    tháng 12
+                    năm 2021
+                </small>
+                <p class="card-text">Slide môn Cấu trúc rời rạc của tác giả Cao Thanh Tình, Mô tả: Tài liệu được lấy từ website hoctap.suctremmt do khoa MMT&amp;TT của trường ĐHCNTT
+                    <a href="/document/62a9832761fec29">Xem chi tiết...</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 m-1">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="/document/a3684b1bf807195">Slide chương 1 - Đại số tuyến tính</a></h5>
+                <small class="card-text card-subtitle text-muted">
+                    đăng bởi
+                        <span class="text-danger">
+                            
+                            Hồ Thị Ngọc Phúc
+                            
+                        </span>
+                    lúc 20:39
+                    ngày 05
+                    tháng 12
+                    năm 2021
+                </small>
+                <p class="card-text">Slide môn Đại số tuyến tính của tác giả Lê Huỳnh Mỹ Vân, Mô tả: Slide chương 1 cô Lê Huỳnh Mỹ Vân
+                    <a href="/document/a3684b1bf807195">Xem chi tiết...</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 m-1">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="/document/40e562f6fbc93b9">Slide chương 2 - Đại số tuyến tính</a></h5>
+                <small class="card-text card-subtitle text-muted">
+                    đăng bởi
+                        <span class="text-danger">
+                            
+                            Hồ Thị Ngọc Phúc
+                            
+                        </span>
+                    lúc 20:40
+                    ngày 05
+                    tháng 12
+                    năm 2021
+                </small>
+                <p class="card-text">Slide môn Đại số tuyến tính của tác giả Lê Huỳnh Mỹ Vân, Mô tả: Slide chương 2
+                    <a href="/document/40e562f6fbc93b9">Xem chi tiết...</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="list-subject-footer row col-12 d-flex text-right pb-2 pt-2">
+            <div class="so-bai col-7 col-sm-8 col-lg-9">
+                <p style="display: inline;">Hiển thị tối đa</p>
+                <select id="maximum-number" name="maximum-number" style="border: none; " onchange= "window.location.href='?search=a&num='+this.value">
+                    <option value=10 selected>10</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                </select>
+            </div>
+            <div class="tong-bai col-5 col-sm-4 col-lg-3 d-flex">
+                <p style="display: inline;">Trang 1 / 6</p>
+                &ensp;
+                
+                    <a style="text-decoration: none" class="backward" ><i class="fas fa-angle-left"></i></a>
+                
+                &ensp;
+                
+                    <a style="text-decoration: none" href="?search=a&num=10&page=2" class="forward">&nbsp;<i class="fas fa-angle-right"></i>&nbsp;</a>
+                
+            </div>
+	</div>
+</div>
+    
+
+</div>
+
+
+
+
+	<!--Footer-->
+
+	<footer class="justify-content-center row bg-dark" style="color: white; margin: 0; padding: 0;" >
+        <!-- Copyright -->
+        <div class="col-11" style="border-top: solid 2px #42A272; margin: 30px 0 15px 0; padding: 5px 0;">
+            © 2021 Butterflies - NT208.ANTN
+        </div>
+        <!-- Copyright -->
+    </footer>
+</body>
+
+</html>

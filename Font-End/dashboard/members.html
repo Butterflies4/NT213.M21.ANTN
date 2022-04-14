@@ -1,0 +1,736 @@
+
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>  Thành Viên </title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+    <!-- font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+
+    
+</head>
+<body style="background-color: #363740;">
+    <div class="container-fluid" style="padding:0px">
+        <!-- <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown"><i class="fas fa-bars"></i></button> -->
+        
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top sidebar col-lg-2 p-0" style='display:inline-block'>
+                <a class="navbar-brand text-center pt-lg-4 pb-lg-3 pl-lg-4 pl-xl-5 pl-3" href="#">DASHBOARD</a>
+                <button class="navbar-toggler float-right mr-3 mt-1 mb-1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="list-item p-0 w-100">
+                        <li class="item ">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/dashboard/">
+                                <i class="fas fa-chart-pie"></i>
+                                <p>Tổng quan</p>
+                            </a>
+                        </li>
+                        <li class="item ">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/dashboard/DongGopTL/">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>Đóng góp</p>
+                            </a>
+                        </li>
+                        
+                        <li class="item ">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/dashboard/DuyetTL/">
+                                <i class="fas fa-ticket-alt"></i>
+                                <p>Duyệt tài liệu</p>
+                            </a>
+                        </li>    
+                             
+                        <li class="item ">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/dashboard/TaiLieu/">
+                                <i class="fas fa-book"></i>
+                                <p>Tài Liệu</p>
+                            </a>
+                        </li>
+                        
+                        <li class="item horizontal">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/dashboard/ThanhVien/">
+                                <i class="fas fa-users-cog"></i>
+                                <p>Thành viên</p>
+                            </a>
+                        </li>
+                         
+                        <li class="item ">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/ThongTinCaNhan/">
+                                <i class="fas fa-user"></i>
+                                <p>Hồ sơ</p>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/">
+                                <i class="fas fa-home"></i>
+                                Trang chủ
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        <div class="content col-12 col-lg-10 mt-3 pt-5 mt-lg-0 pt-xl-2">
+            <div class="row pb-2">
+                <div class="col-6">
+                    <h2 class="TieuDe">Thành viên</h2>
+                </div>
+                <div class="col-6">
+                    <div class="user">
+                        <a class="nav-link" href="#" data-toggle="dropdown" style="padding: 0; " aria-expanded="false">
+
+                            <div class="row nav-justified">
+                                <div class="align-self-center"
+                                    style="padding-left:20px; padding-right:20px; font-weight:600">
+                                    Butterflies
+                                </div>
+
+                                <div class="avatar-frame">
+                                    <div class="avatar"
+                                        style="background: url('/media/avatar/admin.png');background-repeat: no-repeat; background-size: cover; background-position: center;">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu" >
+                            <li><a class="dropdown-item" href="/ThongTinCaNhan/">Hồ sơ</a></li>
+                            <li><a class="dropdown-item" href="/dashboard/DongGopTL/">Đăng tài liệu</a></li>
+                            <li><a class="dropdown-item" href="/DangXuat/">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            
+<div class="row col-12 justify-content-center row" style="margin-bottom: 30px;">
+    <div class="col-12 list-subject">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th scope="col" class='align-middle' style="border-top:0">#</th>
+                <th scope="col" class='align-middle' style="border-top:0">Người dùng</th>
+                <th scope="col" class='align-middle' style="border-top:0">Thời gian tham gia</th>
+                <th scope='col' class='align-middle' style="border-top:0">Vai trò</th>
+                <th scope="col" class='align-middle' style="border-top:0">Trạng thái</th>
+                <th scope="col" class='align-middle' style="border-top:0">Đóng góp</th>
+                <th scope="col" class='align-middle' style="border-top:0"></th>
+                </tr>
+            </thead>
+            <tbody>
+            
+                
+                <tr class=''>
+                
+                    <th class='align-middle' scope="row">1</th>
+                    <td>
+                        
+                            Ngọc Trưởng
+                            <br/>
+                        
+                        ngoctruong2k1
+                    </td>
+                    <td class='align-middle'>
+                        129 ngày 
+                        <br/>
+                        <small class='font-italic'>đăng ký lúc 10:28 ngày 05/12/2021 </small>
+                         
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            <span class='text-success font-weight-bold'>Quản trị viên</span>
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Hoạt động
+                        
+                    </td>
+                    <td class='align-middle'>
+                        10 tài liệu
+                        <br/>
+                        5 bình luận
+                    </td>
+                    <td class='align-middle'>
+                        <div class="btn-group dropleft">
+                        <button class="nav-link" style='background:none; border:none' type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            &ensp; <i class="fas fa-ellipsis-v"></i> &ensp;
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/document/" target="_blank">Xem thông tin</a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Active/ngoctruong2k1">
+                                
+                                    Khóa tài khoản
+                                
+                            </a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Staff/ngoctruong2k1">
+                                
+                                    Bỏ vai trò quản trị
+                                
+                            </a>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            
+                
+                <tr class=''>
+                
+                    <th class='align-middle' scope="row">2</th>
+                    <td>
+                        
+                            Hồ Thị Ngọc Phúc
+                            <br/>
+                        
+                        LaylaChan
+                    </td>
+                    <td class='align-middle'>
+                        129 ngày 
+                        <br/>
+                        <small class='font-italic'>đăng ký lúc 10:26 ngày 05/12/2021 </small>
+                         
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            <span class='text-success font-weight-bold'>Quản trị viên</span>
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Hoạt động
+                        
+                    </td>
+                    <td class='align-middle'>
+                        12 tài liệu
+                        <br/>
+                        5 bình luận
+                    </td>
+                    <td class='align-middle'>
+                        <div class="btn-group dropleft">
+                        <button class="nav-link" style='background:none; border:none' type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            &ensp; <i class="fas fa-ellipsis-v"></i> &ensp;
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/document/" target="_blank">Xem thông tin</a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Active/LaylaChan">
+                                
+                                    Khóa tài khoản
+                                
+                            </a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Staff/LaylaChan">
+                                
+                                    Bỏ vai trò quản trị
+                                
+                            </a>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            
+                
+                <tr class=''>
+                
+                    <th class='align-middle' scope="row">3</th>
+                    <td>
+                        
+                            JackMTP
+                            <br/>
+                        
+                        JackMTP
+                    </td>
+                    <td class='align-middle'>
+                        129 ngày 
+                        <br/>
+                        <small class='font-italic'>đăng ký lúc 21:51 ngày 05/12/2021 </small>
+                         
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Cộng tác viên
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Hoạt động
+                        
+                    </td>
+                    <td class='align-middle'>
+                        10 tài liệu
+                        <br/>
+                        3 bình luận
+                    </td>
+                    <td class='align-middle'>
+                        <div class="btn-group dropleft">
+                        <button class="nav-link" style='background:none; border:none' type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            &ensp; <i class="fas fa-ellipsis-v"></i> &ensp;
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/document/" target="_blank">Xem thông tin</a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Active/JackMTP">
+                                
+                                    Khóa tài khoản
+                                
+                            </a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Staff/JackMTP">
+                                
+                                    Thêm quản trị viên
+                                
+                            </a>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            
+                
+                <tr class=''>
+                
+                    <th class='align-middle' scope="row">4</th>
+                    <td>
+                        
+                            Ngọc Phúc
+                            <br/>
+                        
+                        NgocPhuc
+                    </td>
+                    <td class='align-middle'>
+                        129 ngày 
+                        <br/>
+                        <small class='font-italic'>đăng ký lúc 21:51 ngày 05/12/2021 </small>
+                         
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Cộng tác viên
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Hoạt động
+                        
+                    </td>
+                    <td class='align-middle'>
+                        11 tài liệu
+                        <br/>
+                        0 bình luận
+                    </td>
+                    <td class='align-middle'>
+                        <div class="btn-group dropleft">
+                        <button class="nav-link" style='background:none; border:none' type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            &ensp; <i class="fas fa-ellipsis-v"></i> &ensp;
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/document/" target="_blank">Xem thông tin</a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Active/NgocPhuc">
+                                
+                                    Khóa tài khoản
+                                
+                            </a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Staff/NgocPhuc">
+                                
+                                    Thêm quản trị viên
+                                
+                            </a>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            
+                
+                <tr class=''>
+                
+                    <th class='align-middle' scope="row">5</th>
+                    <td>
+                        
+                            Lão Ngốc
+                            <br/>
+                        
+                        19522440
+                    </td>
+                    <td class='align-middle'>
+                        129 ngày 
+                        <br/>
+                        <small class='font-italic'>đăng ký lúc 21:53 ngày 05/12/2021 </small>
+                         
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Cộng tác viên
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Hoạt động
+                        
+                    </td>
+                    <td class='align-middle'>
+                        2 tài liệu
+                        <br/>
+                        0 bình luận
+                    </td>
+                    <td class='align-middle'>
+                        <div class="btn-group dropleft">
+                        <button class="nav-link" style='background:none; border:none' type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            &ensp; <i class="fas fa-ellipsis-v"></i> &ensp;
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/document/" target="_blank">Xem thông tin</a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Active/19522440">
+                                
+                                    Khóa tài khoản
+                                
+                            </a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Staff/19522440">
+                                
+                                    Thêm quản trị viên
+                                
+                            </a>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            
+                
+                <tr class=''>
+                
+                    <th class='align-middle' scope="row">6</th>
+                    <td>
+                        
+                            Lê Tôn Nhân
+                            <br/>
+                        
+                        LeTonNhan
+                    </td>
+                    <td class='align-middle'>
+                        129 ngày 
+                        <br/>
+                        <small class='font-italic'>đăng ký lúc 10:25 ngày 05/12/2021 </small>
+                         
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            <span class='text-success font-weight-bold'>Quản trị viên</span>
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Hoạt động
+                        
+                    </td>
+                    <td class='align-middle'>
+                        16 tài liệu
+                        <br/>
+                        7 bình luận
+                    </td>
+                    <td class='align-middle'>
+                        <div class="btn-group dropleft">
+                        <button class="nav-link" style='background:none; border:none' type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            &ensp; <i class="fas fa-ellipsis-v"></i> &ensp;
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/document/" target="_blank">Xem thông tin</a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Active/LeTonNhan">
+                                
+                                    Khóa tài khoản
+                                
+                            </a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Staff/LeTonNhan">
+                                
+                                    Bỏ vai trò quản trị
+                                
+                            </a>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            
+                
+                <tr class=''>
+                
+                    <th class='align-middle' scope="row">7</th>
+                    <td>
+                        
+                            Demo
+                            <br/>
+                        
+                        demo1
+                    </td>
+                    <td class='align-middle'>
+                        129 ngày 
+                        <br/>
+                        <small class='font-italic'>đăng ký lúc 22:39 ngày 05/12/2021 </small>
+                         
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Cộng tác viên
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Hoạt động
+                        
+                    </td>
+                    <td class='align-middle'>
+                        1 tài liệu
+                        <br/>
+                        0 bình luận
+                    </td>
+                    <td class='align-middle'>
+                        <div class="btn-group dropleft">
+                        <button class="nav-link" style='background:none; border:none' type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            &ensp; <i class="fas fa-ellipsis-v"></i> &ensp;
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/document/" target="_blank">Xem thông tin</a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Active/demo1">
+                                
+                                    Khóa tài khoản
+                                
+                            </a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Staff/demo1">
+                                
+                                    Thêm quản trị viên
+                                
+                            </a>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            
+                
+                <tr class=''>
+                
+                    <th class='align-middle' scope="row">8</th>
+                    <td>
+                        
+                            Demo
+                            <br/>
+                        
+                        demo2
+                    </td>
+                    <td class='align-middle'>
+                        129 ngày 
+                        <br/>
+                        <small class='font-italic'>đăng ký lúc 22:54 ngày 05/12/2021 </small>
+                         
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Cộng tác viên
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Hoạt động
+                        
+                    </td>
+                    <td class='align-middle'>
+                        1 tài liệu
+                        <br/>
+                        0 bình luận
+                    </td>
+                    <td class='align-middle'>
+                        <div class="btn-group dropleft">
+                        <button class="nav-link" style='background:none; border:none' type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            &ensp; <i class="fas fa-ellipsis-v"></i> &ensp;
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/document/" target="_blank">Xem thông tin</a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Active/demo2">
+                                
+                                    Khóa tài khoản
+                                
+                            </a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Staff/demo2">
+                                
+                                    Thêm quản trị viên
+                                
+                            </a>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            
+                
+                <tr class=''>
+                
+                    <th class='align-middle' scope="row">9</th>
+                    <td>
+                        
+                        demo3
+                    </td>
+                    <td class='align-middle'>
+                        129 ngày 
+                        <br/>
+                        <small class='font-italic'>đăng ký lúc 08:41 ngày 06/12/2021 </small>
+                         
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            <span class='text-success font-weight-bold'>Quản trị viên</span>
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Hoạt động
+                        
+                    </td>
+                    <td class='align-middle'>
+                        1 tài liệu
+                        <br/>
+                        0 bình luận
+                    </td>
+                    <td class='align-middle'>
+                        <div class="btn-group dropleft">
+                        <button class="nav-link" style='background:none; border:none' type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            &ensp; <i class="fas fa-ellipsis-v"></i> &ensp;
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/document/" target="_blank">Xem thông tin</a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Active/demo3">
+                                
+                                    Khóa tài khoản
+                                
+                            </a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Staff/demo3">
+                                
+                                    Bỏ vai trò quản trị
+                                
+                            </a>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            
+                
+                <tr class='font-weight-bold'>
+                
+                    <th class='align-middle' scope="row">10</th>
+                    <td>
+                        
+                            Butterflies
+                            <br/>
+                        
+                        admin
+                    </td>
+                    <td class='align-middle'>
+                        129 ngày 
+                        <br/>
+                        <small class='font-italic'>đăng ký lúc 10:23 ngày 05/12/2021 </small>
+                         
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            <span class='text-success font-weight-bold'>Quản trị viên</span>
+                        
+                    </td>
+                    <td class='align-middle'>
+                        
+                            Hoạt động
+                        
+                    </td>
+                    <td class='align-middle'>
+                        1 tài liệu
+                        <br/>
+                        3 bình luận
+                    </td>
+                    <td class='align-middle'>
+                        <div class="btn-group dropleft">
+                        <button class="nav-link" style='background:none; border:none' type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            &ensp; <i class="fas fa-ellipsis-v"></i> &ensp;
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/document/" target="_blank">Xem thông tin</a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Active/admin">
+                                
+                                    Khóa tài khoản
+                                
+                            </a>
+                            <a class="dropdown-item" href="/dashboard/ThanhVien/Staff/admin">
+                                
+                                    Bỏ vai trò quản trị
+                                
+                            </a>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            
+        
+            </tbody>
+        </table>
+        <div class="list-subject-footer row text-dark">
+            <div class="so-bai col-12 col-sm-6 pr-3 align-self-center ">
+                <p style="display: inline;">Số bài hiển thị tối đa</p>
+                <select id="maximum-number" class='text-dark' name="maximum-number" style="border: none; "onchange= "window.location.href='?num='+this.value">
+                    <option value=10 selected>10</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                </select>
+            </div>
+            <div class="tong-bai col-12 col-sm-6 pl-3 text-left" style="min-width: 200px;">
+                <p style="display: inline;">Trang 1 / 1</p>
+                
+                    <a style="text-decoration: none" class="backward" >&nbsp;<i class="fas fa-angle-left text-dark"></i>&nbsp;</a>
+                
+                
+                
+                    <a style="text-decoration: none" class="forward" >&nbsp;<i class="fas fa-angle-right text-dark"></i>&nbsp;</a>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+        </div>
+    
+    
+
+    
+</body>
+
+</html>

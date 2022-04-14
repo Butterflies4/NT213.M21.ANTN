@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	
+	
+	
+	
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+	<title>Bài tập kinh tế chính trị | Kinh tế chính trị Mác – Lênin</title>	
+	<!-- Import Boostrap css, js, font awesome here -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+	<!-- Import font-->
+	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.0/mdb.min.css" rel="stylesheet" />
+
+	<link rel="stylesheet" href="/static/css/style.css">
+	
+
+	
+	<script>
+		function httpGet(theUrl)
+		{
+			var xmlHttp = new XMLHttpRequest();
+			xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+			xmlHttp.send( null );
+			return xmlHttp.responseText;
+		};
+		function myFunction(id) {
+			httpGet(window.location.origin +"/thongbao/" + id + "/read");
+			document.getElementById(id).remove();
+			tmp = document.getElementById('number_mess')
+			tmp.innerText = tmp.innerText -1
+			if (tmp.innerText == '0'){
+				tmp.remove();
+			}
+		};
+	</script>
+</head>
+
+<body>
+	<!--banner-->
+	<div class="banner d-xl-block d-none" style="height:200px; background-image: url('/static/images/banner.png'); background-repeat: no-repeat; background-size: 100% 100%; ">
+		<div class="slogan-tieude">
+			<h2 class="tieude display-4" style="color: white; font-weight: normal; padding-left: 0%;">Web chia sẻ tài
+				liệu</h2>
+			<h2 class="slogan display-5" style="color: white; display: block;">Learning is sharing</h2>
+		</div>
+	</div>
+	<!-- Navbar-->
+	<nav class="navbar navbar-expand-xl navbar-light bg-dark text-light sticky-top">
+		<div class="container-fluid">
+			<button class="navbar-toggler text-light border-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<i class="fas fa-bars"></i>
+		</button>
+
+		<div class="collapse navbar-collapse text-light" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a href="/" class="nav-link text-light">Trang chủ</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link text-light dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Môn đại cương
+					</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/category/GiaoDucDaiCuong/LyLuanChinhTri">Lý luận chính
+								trị</a>
+						<a class="dropdown-item" href="/category/GiaoDucDaiCuong/ToanTinKHTN">Toán-Tin-KHTN</a>
+						<a class="dropdown-item" href="/category/GiaoDucDaiCuong/NgoaiNgu">Ngoại ngữ</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown-csnn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Cơ sở nhóm ngành
+					</a>
+
+					<div class="dropdown-menu">
+						
+						
+						<a class="dropdown-item" href="/subjects/NT132/">Quản trị mạng và hệ thống</a>
+						
+						<a class="dropdown-item" href="/subjects/IT012/">Tổ chức và Cấu trúc Máy tính II</a>
+						
+						<a class="dropdown-item" href="/subjects/IT005/">Nhập môn mạng máy tính</a>
+						
+						<a class="dropdown-item" href="/subjects/IT006/">Kiến trúc máy tính</a>
+						
+						<a class="dropdown-item" href="/subjects/IT003/">Cấu trúc dữ liệu và giải thuật</a>
+						
+						<a class="dropdown-item" href="/subjects/IT002/">Lập trình hướng đối tượng</a>
+						
+						<a class="dropdown-item" href="/subjects/IT007/">Hệ điều hành</a>
+						
+						<a class="dropdown-item" href="/subjects/IT004/">Cơ sở dữ liệu</a>
+						
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown-csn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Cơ sở ngành
+					</a>
+					<div class="dropdown-menu dropdown-primary">
+						<a class="dropdown-item" href="/category/CoSoNganh/CongNghePhanMem">Khoa Công nghệ phần
+							mềm</a>
+						<a class="dropdown-item" href="/category/CoSoNganh/HeThongThongTin">Khoa Hệ thống thông
+							tin</a>
+						<a class="dropdown-item" href="/category/CoSoNganh/MangMayTinhTruyenThong">Khoa MMT&TT </a>
+						<a class="dropdown-item" href="/category/CoSoNganh/KyThuatMayTinh">Khoa Kĩ thuật máy
+							tính</a>
+						<a class="dropdown-item" href="/category/CoSoNganh/KhoaHocMayTinh">Khoa Khoa học máy
+							tính</a>
+						<a class="dropdown-item" href="/category/CoSoNganh/KyThuatThongTin">Khoa KH&KTTT</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown-cn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Môn chuyên ngành
+					</a>
+					<div class="dropdown-menu dropdown-primary">
+						<a class="dropdown-item" href="/category/ChuyenNganh/CongNghePhanMem">Khoa Công nghệ phần
+							mềm</a>
+						<a class="dropdown-item" href="/category/ChuyenNganh/HeThongThongTin">Khoa Hệ thống thông
+							tin</a>
+						<a class="dropdown-item" href="/category/ChuyenNganh/MangMayTinhTruyenThong">Khoa MMT&TT
+						</a>
+						<a class="dropdown-item" href="/category/ChuyenNganh/KyThuatMayTinh">Khoa Kĩ thuật máy
+							tính</a>
+						<a class="dropdown-item" href="/category/ChuyenNganh/KhoaHocMayTinh">Khoa Khoa học máy
+							tính</a>
+						<a class="dropdown-item" href="/category/ChuyenNganh/KyThuatThongTin">Khoa KH&KTTT</a>
+					</div>
+				</li>
+			</ul>
+			
+
+		</div>
+		<form class="form-inline  flex-row my-2 my-lg-0" action="/search/" method="get">
+			<input class="form-control mr-sm-2 p-0 pl-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="search"> 
+			<button class="btn btn-dark d-none d-sm-inline my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+		</form>
+		
+		<ul class="navbar-nav flex-row">
+			<li class="nav-item ">
+				<a class="nav-link p-1 pt-2" href="/dashboard/DongGopTL/">
+					<span><i class="fas fa-plus-circle fa-lg" style="color: rgb(255, 255, 255);"></i></span>
+				</a>
+			</li>
+			<li class="nav-item dropdown me-3 me-lg-1">
+				<a class="nav-link" data-toggle="dropdown" aria-haspopup="true" href="#"	aria-expanded="false">
+					<i class="fas fa-bell fa-lg" style="color: rgb(255, 255, 255);"></i>
+					
+					
+				</a>
+				<div class="dropdown-menu dropdown-menu-right dropdown-default">
+					
+					
+				</div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link p-1 d-sm-flex align-items-sm-center" href="#" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">
+					<img src="/media/avatar/admin.png" class="rounded-circle" width="30" height="30" alt="ảnh đại diện"
+						loading="lazy" />
+					<strong class="d-none d-sm-block ms-1" style="color: rgb(255, 255, 255);">&nbsp;
+						
+						Butterflies
+						
+					</strong>
+				</a>
+				<div class="dropdown-menu dropdown-menu-right dropdown-default"  style="position:absolute">
+					<a class="dropdown-item" href="/ThongTinCaNhan/">Thông tin cá nhân</a>
+					<a class="dropdown-item" href="/dashboard/">Dashboard</a>
+					<a class="dropdown-item" href="/DangXuat/">Đăng xuất</a>
+				</div>
+			</li>
+		</ul>
+		
+		</div>
+		
+	</nav>
+	<!-- Navbar -->
+
+	
+
+	
+	
+	<!--Tiêu đề-->
+	<section class="container-fluid">
+		<div class="container-fluid padding">
+			<div class="row welcome text-center">
+				
+				<div class="col-12 pt-2 pb-2 mt-2 mb-2 border-white border-top border-bottom">
+					<h1 class="h2 " style="text-shadow: 2px 2px 5px red;">Bài tập kinh tế chính trị</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--menu-->
+	
+
+	
+	<section style="min-height: 600px;" class="p-2" >
+		<div class="container-fluid padding">
+			<div class="row text justify-content-center">
+				<!-- card -->
+				<div class="col-12 col-md-8 bg-light rounded">
+					
+<script>
+function textAreaAdjust(element) {
+  element.style.height = "1px";
+  element.style.height = element.scrollHeight+"px";
+}
+</script>
+
+<div class="tailieucuthe row rounded pt-3 pb-3">
+	<div class="col-12 col-sm-4 ">
+		<div class="creator">
+			<p style="margin-bottom: 2rem; text-shadow: 2px 2px 5px red; font-size: 20px; text-align: center;">Thông tin cơ bản</p>
+			<div id="avatar" style="margin-bottom: 1rem; text-align: center;">
+				<img src="/media/avatar/JackMTP.jpg" style="display: block; margin: auto; width: 50%; max-width: 100px;" alt="">&nbsp;
+				<span>
+                    JackMTP
+                    </span>
+			</div>
+            <ul class="list-group">
+                <li class="list-group-item bg-light border-0 shadow-none d-flex align-items-center">
+                    <i class="fas fa-tags pr-2"></i> Bài tập
+                </li>
+                <li class="list-group-item bg-light border-0 shadow-none d-flex align-items-center">
+                    <i class="fas fa-file-alt pr-2"></i> Kinh tế chính trị Mác – Lênin
+                </li>
+                <li class="list-group-item bg-light border-0 shadow-none d-flex align-items-center">
+                    <i class="fas fa-user pr-2"></i> Lê Tôn Nhân
+                </li>
+                <li class="list-group-item bg-light border-0 shadow-none d-flex align-items-center">
+                    <i class="fas fa-clock pr-2"></i> 12/05/2021
+                </li>
+                
+                    
+                
+                <li class="list-group-item bg-light border-0 shadow-none d-flex  align-items-center">
+                    <i class="fas fa-download"></i>&nbsp; 0
+                    <i class="fas fa-eye ml-4"></i>&nbsp; 2 
+                </li>
+                <li class="list-group-item bg-light border-0 shadow-none d-flex  align-items-center">
+                    <a href="/download/0d7c1b2cee6f99c" class="btn btn-success">Tải xuống tài liệu</a>
+                </li>
+                
+            </ul>
+            
+		</div>
+	</div>
+	<div class="col-sm-8 col-12 pt-2">
+		<div class="mô tả">
+			
+			
+			
+			<h2 style="font-size: 20px; text-shadow: 2px 2px 5px red;">Mô tả tài liệu</h2>
+			
+			<h2 style="font-size: 20px; text-shadow: 2px 2px 5px red;">Danh sách File tài liệu đính kèm</h2>
+			<div style="font-size: 16px;">
+				<ul>
+ 					
+					<li><a href="/media/document/0d7c1b2cee6f99c/19520199_L%C3%AA%20T%C3%B4n%20Nh%C3%A2n.pdf">19520199_Lê Tôn Nhân.pdf</a></li>
+					
+				</ul>
+			</div>
+            <h2 style="font-size: 20px; text-shadow: 2px 2px 5px red;">Chia sẻ</h2>
+            <a href="https://plus.google.com/share?url=https://djangoprojectbutterflies.herokuapp.com/document/0d7c1b2cee6f99c/" class="fab fa-google-plus fa-2x" style="color:#D34836;" target="_blank"></a>
+            <a href="https://api.whatsapp.com/send?text=https://djangoprojectbutterflies.herokuapp.com/document/0d7c1b2cee6f99c/" class="fab fa-whatsapp-square fa-2x" style="color:#25d366" target="_blank"></a>
+            <a href="https://www.pinterest.com/pin/create/button/?url=https://djangoprojectbutterflies.herokuapp.com/document/0d7c1b2cee6f99c/" class="fab fa-pinterest-square fa-2x" style="color:#CB2027" target="_blank"></a>
+            <a href="https://t.me/share/url?text=chiasetailieuhoctap&url=https://djangoprojectbutterflies.herokuapp.com/document/0d7c1b2cee6f99c/" class="fab fa-telegram fa-2x" style="color:#0088cc;" target="_blank"></a>
+            <a href="http://www.facebook.com/sharer/sharer.php?u=https://djangoprojectbutterflies.herokuapp.com/document/0d7c1b2cee6f99c/" class="fab fa-facebook-square fa-2x" style="color: #3b5998;" target="_blank"></a>
+		</div>
+	</div>
+</div>
+
+
+<h4 class="border-bottom text-dark mt-3 pb-2">0 bình luận </h4>
+
+<div class="row">
+    <div class="col-12 d-flex" >
+        <img src="/media/avatar/admin.png" class="rounded-circle" width="70" height="70" style="min-width:70px" alt="" loading="lazy">
+        <form method='POST' class="w-100 pl-2">
+            <input type="hidden" name="csrfmiddlewaretoken" value="RypHVGrBVmvyA5FbC2Xtnk2bXA9L4lVTuubay9Qn4KuUk3Npsl8u3Ph7WjJE2GBP">
+            <div class="form-group border-dark" style='border-bottom: 2px solid;'>
+                <textarea name="NoiDung" class="form-control border-0 bg-light" placeholder="Bình luận công khai..." onkeyup="textAreaAdjust(this)" style='height:36px' required="" id="id_NoiDung"></textarea>
+            </div>
+            <button type="submit" class="btn btn-secondary float-right" style="margin-bottom: 1rem;">Bình luận</button>
+        </form>
+    </div> 
+</div>
+
+
+    
+
+
+				</div>
+				<div class="col-lg-3 col-md-4 d-none d-md-block row pr-0">
+					<div class="col-12">
+						<div class="new-document bg-white rounded p-2">
+							<div class="list-group" style="margin-bottom: 2rem;">
+								<h4 style="font-size:20px; text-align: center; text-shadow: 2px 2px 5px red;" class="p-2">Tài liệu mới nhất</h4>
+								
+								
+								<a href="/document/921f848318d889c" class="list-group-item border-0 pl-2 border-top justify-content-between align-items-center">
+									Chương 0: Giới thiệu môn học và ôn tập ĐS tổ hợp
+									<br/>
+									<span class="badge badge-primary badge-pill" style="background-color: rgba(37, 165, 32, 0.6); font-size: 11px;"><small class="card-text card-subtitle">
+                           			14:43
+										ngày 21
+										tháng 03
+										năm 2022
+									</small>
+								</span>
+								</a>
+								
+								<a href="/document/f7971acc9cac1f5" class="list-group-item border-0 pl-2 border-top justify-content-between align-items-center">
+									Slide bài giảng NT208
+									<br/>
+									<span class="badge badge-primary badge-pill" style="background-color: rgba(37, 165, 32, 0.6); font-size: 11px;"><small class="card-text card-subtitle">
+                           			08:42
+										ngày 06
+										tháng 12
+										năm 2021
+									</small>
+								</span>
+								</a>
+								
+								<a href="/document/2c162df5a185536" class="list-group-item border-0 pl-2 border-top justify-content-between align-items-center">
+									Phép đếm - cấu trúc rời rạc
+									<br/>
+									<span class="badge badge-primary badge-pill" style="background-color: rgba(37, 165, 32, 0.6); font-size: 11px;"><small class="card-text card-subtitle">
+                           			22:55
+										ngày 05
+										tháng 12
+										năm 2021
+									</small>
+								</span>
+								</a>
+								
+								<a href="/document/010f026d8d3c3b4" class="list-group-item border-0 pl-2 border-top justify-content-between align-items-center">
+									Slide môn cấu trúc rời rạc
+									<br/>
+									<span class="badge badge-primary badge-pill" style="background-color: rgba(37, 165, 32, 0.6); font-size: 11px;"><small class="card-text card-subtitle">
+                           			22:41
+										ngày 05
+										tháng 12
+										năm 2021
+									</small>
+								</span>
+								</a>
+								
+								<a href="/document/7dfd53b3785d4b9" class="list-group-item border-0 pl-2 border-top justify-content-between align-items-center">
+									Bài tập thực hành Web (Lab 1 - 4)
+									<br/>
+									<span class="badge badge-primary badge-pill" style="background-color: rgba(37, 165, 32, 0.6); font-size: 11px;"><small class="card-text card-subtitle">
+                           			22:22
+										ngày 05
+										tháng 12
+										năm 2021
+									</small>
+								</span>
+								</a>
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-12">
+						<div class="recent bg-light rounded" >
+							<div class="list-group bg-white rounded p-2" style="min-height:300px" >
+								<h4 style="font-size:20px; text-align: center; text-shadow: 2px 2px 5px red;">Xem gần đây</h4>
+								
+								
+								
+								<a href="/document/0d7c1b2cee6f99c" class="list-group-item border-0 p-2  border-bottom border-top rounded-0 justify-content-between align-items-center">
+									Bài tập kinh tế chính trị
+								</a>
+								
+								
+								
+								<a href="/document/921f848318d889c" class="list-group-item border-0 p-2  border-bottom border-top rounded-0 justify-content-between align-items-center">
+									Chương 0: Giới thiệu môn học và ôn tập ĐS tổ hợp
+								</a>
+								
+								
+								
+								<a href="/document/5ed94084c7ce638" class="list-group-item border-0 p-2  border-bottom border-top rounded-0 justify-content-between align-items-center">
+									Giáo trình LSĐ
+								</a>
+								
+								
+								
+								<a href="/document/f7971acc9cac1f5" class="list-group-item border-0 p-2  border-bottom border-top rounded-0 justify-content-between align-items-center">
+									Slide bài giảng NT208
+								</a>
+								
+								
+								
+								
+							</div>
+						</div>
+					</div>
+					
+				
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	
+
+	<!--Footer-->
+
+	<footer class="justify-content-center row bg-dark" style="color: white; margin: 0; padding: 0;" >
+        <!-- Copyright -->
+        <div class="col-11" style="border-top: solid 2px #42A272; margin: 30px 0 15px 0; padding: 5px 0;">
+            © 2021 Butterflies - NT208.ANTN
+        </div>
+        <!-- Copyright -->
+    </footer>
+</body>
+
+</html>

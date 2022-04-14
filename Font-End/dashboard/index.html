@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>  Tổng Quan </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+    <!-- font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body style="background-color: #363740;">
+    <div class="container-fluid" style="padding:0px">
+        <!-- <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown"><i class="fas fa-bars"></i></button> -->
+        
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top sidebar col-lg-2 p-0" style='display:inline-block'>
+                <a class="navbar-brand text-center pt-lg-4 pb-lg-3 pl-lg-4 pl-xl-5 pl-3" href="#">DASHBOARD</a>
+                <button class="navbar-toggler float-right mr-3 mt-1 mb-1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="list-item p-0 w-100">
+                        <li class="item horizontal">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/dashboard/">
+                                <i class="fas fa-chart-pie"></i>
+                                <p>Tổng quan</p>
+                            </a>
+                        </li>
+                        <li class="item ">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/dashboard/DongGopTL/">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>Đóng góp</p>
+                            </a>
+                        </li>
+                        
+                        <li class="item ">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/dashboard/DuyetTL/">
+                                <i class="fas fa-ticket-alt"></i>
+                                <p>Duyệt tài liệu</p>
+                            </a>
+                        </li>    
+                             
+                        <li class="item ">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/dashboard/TaiLieu/">
+                                <i class="fas fa-book"></i>
+                                <p>Tài Liệu</p>
+                            </a>
+                        </li>
+                        
+                        <li class="item ">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/dashboard/ThanhVien/">
+                                <i class="fas fa-users-cog"></i>
+                                <p>Thành viên</p>
+                            </a>
+                        </li>
+                         
+                        <li class="item ">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/ThongTinCaNhan/">
+                                <i class="fas fa-user"></i>
+                                <p>Hồ sơ</p>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a class="nav-link pl-2 p-lg-3 p-xl-4" href="/">
+                                <i class="fas fa-home"></i>
+                                Trang chủ
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        <div class="content col-12 col-lg-10 mt-3 pt-5 mt-lg-0 pt-xl-2">
+            <div class="row pb-2">
+                <div class="col-6">
+                    <h2 class="TieuDe">Tổng Quan</h2>
+                </div>
+                <div class="col-6">
+                    <div class="user">
+                        <a class="nav-link" href="#" data-toggle="dropdown" style="padding: 0; " aria-expanded="false">
+
+                            <div class="row nav-justified">
+                                <div class="align-self-center"
+                                    style="padding-left:20px; padding-right:20px; font-weight:600">
+                                    Butterflies
+                                </div>
+
+                                <div class="avatar-frame">
+                                    <div class="avatar"
+                                        style="background: url('/media/avatar/admin.png');background-repeat: no-repeat; background-size: cover; background-position: center;">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu" >
+                            <li><a class="dropdown-item" href="/ThongTinCaNhan/">Hồ sơ</a></li>
+                            <li><a class="dropdown-item" href="/dashboard/DongGopTL/">Đăng tài liệu</a></li>
+                            <li><a class="dropdown-item" href="/DangXuat/">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            
+
+<div class="row TongQuan">
+    <div class="col-6 col-md-3">
+        <a class="overview" href="#">
+            <span class="name">Tài liệu mới</span>
+            <span class="number">8</span>
+        </a>
+    </div>
+    <div class="col-6 col-md-3 ">
+        <a class="overview" href="#">
+            <span class="name">Số tài liệu</span>
+            <span class="number">57</span>
+        </a>
+    </div>
+    <div class="col-6 col-md-3 pt-2 pt-md-0">
+        <a class="overview" href="#">
+            <span class="name">Số người dùng</span>
+            <span class="number">10</span>
+        </a>
+    </div>
+    <div class="col-6 col-md-3 pt-2 pt-md-0">
+        <a class="overview" href="#">
+            <span class="name" >Lượt tải</span>
+            <span class="number">10</span>
+        </a>
+    </div>
+</div>
+
+<div class="row subjects">
+    <div style="display: block; width: 100%;">
+        <button class="add-subject" type="submit" data-toggle="modal" data-target="#exampleModal">
+            <i class="fas fa-plus-square"></i> Thêm môn học
+        </button>
+    </div>
+</div>
+
+
+<div class="row col-12" style="margin-bottom: 30px;">
+    <div class="col-12 list-subject">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th scope="col" class="align-middle" style="border-top:0">#</th>
+                <th scope="col" class="align-middle" style="border-top:0">Mã MH</th>
+                <th scope="col" class="align-middle" style="border-top:0">Tên môn học</th>
+                <th scope="col" class="align-middle" style="border-top:0">Khoa/Bộ môn quản lý</th>
+                <th scope="col" class="align-middle" style="border-top:0">Nhóm môn học</th>
+                <th scope="col" class="align-middle text-center" style="border-top:0">Số lượng TL</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+                <tr>
+                    <th class="align-middle" scope="row">1</th>
+                    <td class="align-middle" >CE005</td>
+                    <td class="align-middle" >Giới thiệu ngành Kỹ Thuật Máy tính</td>
+                    <td class="align-middle" >Kỹ thuật máy tính</td>
+                    <td class="align-middle">Giáo dục đại cương</td>
+                    <td class="text-center align-middle">0</td>
+                </tr>
+            
+                <tr>
+                    <th class="align-middle" scope="row">2</th>
+                    <td class="align-middle" >CE103</td>
+                    <td class="align-middle" >Vi xử lý-vi điều khiển</td>
+                    <td class="align-middle" >Kỹ thuật máy tính</td>
+                    <td class="align-middle">Cơ sở ngành</td>
+                    <td class="text-center align-middle">0</td>
+                </tr>
+            
+                <tr>
+                    <th class="align-middle" scope="row">3</th>
+                    <td class="align-middle" >CE118</td>
+                    <td class="align-middle" >Thiết kế luận lý số</td>
+                    <td class="align-middle" >Kỹ thuật máy tính</td>
+                    <td class="align-middle">Cơ sở ngành</td>
+                    <td class="text-center align-middle">0</td>
+                </tr>
+            
+                <tr>
+                    <th class="align-middle" scope="row">4</th>
+                    <td class="align-middle" >DS106</td>
+                    <td class="align-middle" >Tối ứu hoá và ứng dụng</td>
+                    <td class="align-middle" >Khoa học và kỹ thuật thông tin</td>
+                    <td class="align-middle">Chuyên ngành</td>
+                    <td class="text-center align-middle">0</td>
+                </tr>
+            
+                <tr>
+                    <th class="align-middle" scope="row">5</th>
+                    <td class="align-middle" >DS200</td>
+                    <td class="align-middle" >Phân tích dữ liệu lớn</td>
+                    <td class="align-middle" >Khoa học và kỹ thuật thông tin</td>
+                    <td class="align-middle">Chuyên ngành</td>
+                    <td class="text-center align-middle">0</td>
+                </tr>
+            
+                <tr>
+                    <th class="align-middle" scope="row">6</th>
+                    <td class="align-middle" >CE119</td>
+                    <td class="align-middle" >Thực hành Kiến trúc máy tính</td>
+                    <td class="align-middle" >Kỹ thuật máy tính</td>
+                    <td class="align-middle">Cơ sở ngành</td>
+                    <td class="text-center align-middle">0</td>
+                </tr>
+            
+                <tr>
+                    <th class="align-middle" scope="row">7</th>
+                    <td class="align-middle" >DS305</td>
+                    <td class="align-middle" >Phân tích dữ liệu chuỗi thời gian và ứng dụng</td>
+                    <td class="align-middle" >Khoa học và kỹ thuật thông tin</td>
+                    <td class="align-middle">Chuyên ngành</td>
+                    <td class="text-center align-middle">0</td>
+                </tr>
+            
+                <tr>
+                    <th class="align-middle" scope="row">8</th>
+                    <td class="align-middle" >CE105</td>
+                    <td class="align-middle" >Xử lý tín hiệu số</td>
+                    <td class="align-middle" >Kỹ thuật máy tính</td>
+                    <td class="align-middle">Cơ sở ngành</td>
+                    <td class="text-center align-middle">1</td>
+                </tr>
+            
+                <tr>
+                    <th class="align-middle" scope="row">9</th>
+                    <td class="align-middle" >DS201</td>
+                    <td class="align-middle" >Deep Learning trong khoa học dữ liệu</td>
+                    <td class="align-middle" >Khoa học và kỹ thuật thông tin</td>
+                    <td class="align-middle">Chuyên ngành</td>
+                    <td class="text-center align-middle">0</td>
+                </tr>
+            
+                <tr>
+                    <th class="align-middle" scope="row">10</th>
+                    <td class="align-middle" >CE121</td>
+                    <td class="align-middle" >Lý thuyết mạch điện</td>
+                    <td class="align-middle" >Kỹ thuật máy tính</td>
+                    <td class="align-middle">Cơ sở ngành</td>
+                    <td class="text-center align-middle">0</td>
+                </tr>
+            
+            </tbody>
+        </table>
+        <div class="list-subject-footer row">
+            <div class="so-bai col-9">
+                <p style="display: inline;">Số bài hiển thị tối đa</p>
+                <select id="maximum-number" name="maximum-number" style="border: none; "
+                    onchange="window.location.href='?num='+this.value">
+                    <option value=10 selected>10</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                </select>
+            </div>
+            <div class="tong-bai col-2" style="min-width: 200px;">
+                    <p style="display: inline;">Page 1 of 29</p>
+                    &ensp;
+                
+                    <a style="text-decoration: none" class="backward"><i class="fas fa-angle-left"></i></a>
+                
+                &ensp;
+                
+                    <a style="text-decoration: none" href="?num=10&page=2"
+                        class="forward">&nbsp;<i class="fas fa-angle-right"></i>&nbsp;</a>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+    
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">THÊM MÔN HỌC MỚI</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <form action="." method="post">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="gWnVY4G5DMxDQBrPcxIFOBuM8eHs3kEGTS9oBx5RMawZAzz32QTGu6JI7Xhl1FkC">
+                    
+                    <div>
+                    <ul class="messages">
+                        
+                    </ul>
+                    </div>
+                    <hr>
+                    <!-- <tr><th><label for="id_MaMH">MaMH:</label></th><td><input type="text" name="MaMH" class="form-control" maxlength="10" required id="id_MaMH"><br><span class="helptext">NT208</span></td></tr>
+<tr><th><label for="id_TenMH">TenMH:</label></th><td><input type="text" name="TenMH" class="form-control" maxlength="150" required id="id_TenMH"><br><span class="helptext">Lập trình ứng dụng web</span></td></tr>
+<tr><th><label for="id_Khoa">Khoa:</label></th><td><select name="Khoa" class="form-control" id="id_Khoa">
+  <option value="CongNghePhanMem">Công nghệ phần mềm</option>
+
+  <option value="KyThuatMayTinh">Kỹ thuật máy tính</option>
+
+  <option value="KhoaHocMayTinh">Khoa học máy tính</option>
+
+  <option value="HeThongThongTin">Hệ thống thông tin</option>
+
+  <option value="MangMayTinhTruyenThong">Mạng máy tính và truyền thông</option>
+
+  <option value="KyThuatThongTin">Khoa học và kỹ thuật thông tin</option>
+
+  <option value="LyLuanChinhTri">Lý luận chính trị</option>
+
+  <option value="ToanTinKHTN">Toán - Tin học - KHTN</option>
+
+  <option value="NgoaiNgu">Ngoại ngữ</option>
+
+  <option value="Khac" selected>Khác</option>
+
+</select></td></tr>
+<tr><th><label for="id_NhomMH">NhomMH:</label></th><td><select name="NhomMH" class="form-control" id="id_NhomMH">
+  <option value="GiaoDucDaiCuong">Giáo dục đại cương</option>
+
+  <option value="CoSoNhomNganh">Cơ sở nhóm ngành</option>
+
+  <option value="CoSoNganh">Cơ sở ngành</option>
+
+  <option value="ChuyenNganh">Chuyên ngành</option>
+
+  <option value="Khac" selected>Khác</option>
+
+</select></td></tr>
+<tr><th><label for="id_MoTa">MoTa:</label></th><td><textarea name="MoTa" cols="40" rows="10" class="form-control" maxlength="1000" required id="id_MoTa">
+</textarea><br><span class="helptext">Mô tả tổng quan về môn học, khối kiến thức sẽ được học...</span></td></tr> -->
+                    <!-- 'MaMH','TenMH','Khoa','NhomMH','MoTa' -->
+                    <div class="form-group">
+                        <label class="col-form-label">Mã MH:</label>
+                        <input type="text" name="MaMH" class="form-control" maxlength="10" required id="id_MaMH">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Tên môn học:</label>
+                        <input type="text" name="TenMH" class="form-control" maxlength="150" required id="id_TenMH">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Khoa/Bộ môn quản lý:</label>
+                        <select name="Khoa" class="form-control" id="id_Khoa">
+  <option value="CongNghePhanMem">Công nghệ phần mềm</option>
+
+  <option value="KyThuatMayTinh">Kỹ thuật máy tính</option>
+
+  <option value="KhoaHocMayTinh">Khoa học máy tính</option>
+
+  <option value="HeThongThongTin">Hệ thống thông tin</option>
+
+  <option value="MangMayTinhTruyenThong">Mạng máy tính và truyền thông</option>
+
+  <option value="KyThuatThongTin">Khoa học và kỹ thuật thông tin</option>
+
+  <option value="LyLuanChinhTri">Lý luận chính trị</option>
+
+  <option value="ToanTinKHTN">Toán - Tin học - KHTN</option>
+
+  <option value="NgoaiNgu">Ngoại ngữ</option>
+
+  <option value="Khac" selected>Khác</option>
+
+</select>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Nhóm môn học: </label>
+                        <select name="NhomMH" class="form-control" id="id_NhomMH">
+  <option value="GiaoDucDaiCuong">Giáo dục đại cương</option>
+
+  <option value="CoSoNhomNganh">Cơ sở nhóm ngành</option>
+
+  <option value="CoSoNganh">Cơ sở ngành</option>
+
+  <option value="ChuyenNganh">Chuyên ngành</option>
+
+  <option value="Khac" selected>Khác</option>
+
+</select>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Mô tả: </label>
+                        <textarea name="MoTa" cols="40" rows="10" class="form-control" maxlength="1000" required id="id_MoTa">
+</textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button class="btn btn-primary" type="submit">Gửi đi</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+    
+<script>
+
+    var myModal = new bootstrap.Modal(document.getElementById('thongbao'), {})
+
+    myModal.toggle()
+
+</script>
+
+</body>
+
+</html>
