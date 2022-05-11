@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load mon_hoc_tags %}
 {% block title %}{% if nhom_mh %}Nhóm môn học {{ nhom_mh|safe }} của {% endif %}{{khoa|safe}}{% endblock %}
-{% block title_MH %}{% if nhom_mh %}{{ nhom_mh }} >> {% endif %}{{khoa}}{% endblock %}
+{% block content_title %}{% if nhom_mh %}{{ nhom_mh }} >> {% endif %}{{khoa}}{% endblock %}
 {% block content %}
 
 

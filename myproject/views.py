@@ -208,10 +208,9 @@ def one_document_view(request, slug):
     )
 
 # Trang thông báo lỗi 
-def error(request, *args, **kwargs):
+def error404(request, *args, **kwargs):
     return render(
-        request,
-        '404.html'
+        request,'404.html'
     )
 
 # Trang đăng kí
@@ -228,7 +227,6 @@ def DangKy_view(request):
     return render(
         request,
         'global_DangKy.html',
-        # 'global_DangKy copy.html',
         {'form': form}
     )
 
@@ -359,7 +357,6 @@ def DongGopTL_view(request):
         return HttpResponseRedirect(reverse('DangNhap_view'))
     # Xử lý form 
     if request.method == 'POST':
-
         # Lấy thông tin từ form
         form = ThemTaiLieu(request.POST)
         if form.is_valid():
@@ -545,7 +542,6 @@ def ThanhVien_view(request):
         }
     )
 
-
 def BinhLuan_view(request):
     if not request.user.is_active:
         return HttpResponseRedirect(reverse('DangNhap_view'))
@@ -590,12 +586,34 @@ def ThongTinCaNhan_view(request):
             infoUser.Bio = request.POST['Bio']
             infoUser.save()
             messages.add_message(request, messages.INFO, 'Cập nhật thông tin thành công')
-
     return render(
         request,
         'db_ThongTinCaNhan.html',
         {
             "form": form,
-            "data": InformationUser.objects.get_or_create(User=request.user),
+            "data": InformationUser.objects.get(User=request.user),
+        }
+    )
+
+# Thông tin cá nhân
+def show_profile_public(request, username):
+    # return render(
+    #     request,
+    #     'db_home.html',
+    #     {
+    #         "data": InformationUser.objects.get(User=username),
+    #     }
+    # )
+    # ThongBao.objects.get(pk=username)
+    # # print(InformationUser.objects.get_or_create(User=username))
+    # return render(
+    #     request,
+    #     'show_profile.html',
+    # )
+    return render(
+        request,
+        'show_profile.html',
+        {
+            "data": InformationUser.objects.get(User=User.objects.get(username=username)),
         }
     )

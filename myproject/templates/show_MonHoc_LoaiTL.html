@@ -3,7 +3,7 @@
 {% load myfilters %}
 {% load static %}
 {% block title %}{{ tailieu.0.get_LoaiTL_display }} {{ monhoc.TenMH }} {% endblock %}
-{% block title_MH %}{{ tailieu.0.get_LoaiTL_display }} môn {{ monhoc.TenMH }}{% endblock %}
+{% block content_title %}{{ tailieu.0.get_LoaiTL_display }} môn {{ monhoc.TenMH }}{% endblock %}
 {% block content %}
 <script>
 function textAreaAdjust(element) {
@@ -23,11 +23,13 @@ function textAreaAdjust(element) {
                     <small class="card-text card-subtitle text-muted">
                         đăng bởi
                             <span class="text-danger">
-                                {% if user.first_name %}
-                                {{user.first_name}}
-                                {% else %}
-                                {{user.username}}
-                                {% endif %}
+                                <a href="/profile/{{user.username}}" style="color:#D34836;">
+                                    {% if user.first_name %}
+                                    {{user.first_name}}
+                                    {% else %}
+                                    {{user.username}}
+                                    {% endif %}
+                                </a>
                             </span>
                         lúc {{item.date |date:"H:i"}}
                         ngày {{item.date |date:"d"}}
@@ -74,12 +76,13 @@ function textAreaAdjust(element) {
                 <div class="ms-2 me-auto" style="padding:0 10px;">
                     <div class="">
                     <b>
-                        {% if cmt.user.first_name %}
-                        {{cmt.user.first_name}}
-                        {% else %}
-                        {{cmt.user.username}}
-                        {% endif %}
-                        
+                        <a href="/profile/{{cmt.user.username}}" style="color:#4f4f4f;">
+                            {% if cmt.user.first_name %}
+                            {{cmt.user.first_name}}
+                            {% else %}
+                            {{cmt.user.username}}
+                            {% endif %}
+                        </a>
                     </b>
                     <span class='font-weight-light font-italic'>
                         {{cmt.ThoiGian | days_until }} trước

@@ -23,8 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ln6#5=u=x#)+x^z=8q8#&1lhi*+nzyy6q7_wjjfuy1kd2k%kb%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-DEBUG = True
+DEBUG = False
+# DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 # ALLOWED_HOSTS = []
@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'ckeditor',
     'addthis',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -84,18 +83,18 @@ WSGI_APPLICATION = 'FINALPROJECT.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd20pu16gcm0t3r',
-        'USER': 'qaqiqspzrdeoql',
-        'PASSWORD': 'e1dcf1ef501c42e243c8519884c5b2a7300c4b5896addf05a5f358f9ce914d77',
-        'HOST': 'ec2-18-213-133-45.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'd20pu16gcm0t3r',
+    #     'USER': 'qaqiqspzrdeoql',
+    #     'PASSWORD': 'e1dcf1ef501c42e243c8519884c5b2a7300c4b5896addf05a5f358f9ce914d77',
+    #     'HOST': 'ec2-18-213-133-45.compute-1.amazonaws.com',
+    #     'PORT': '5432',
+    # }
 }
 
 
@@ -145,9 +144,22 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR/"static" 
 MEDIA_URL  = '/media/'
-MEDIA_ROOT = BASE_DIR/"media" 
+MEDIA_ROOT = BASE_DIR/"media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar_Basic': [
+            ['Source', '-', 'Bold', 'Italic']
+        ],
+        'removePlugins': 'stylesheetparser',
+        'allowedContent': True,
+        'disallowedContent' : 'script',
+        'height': 300,
+        'width': '100%',
+    }
+}

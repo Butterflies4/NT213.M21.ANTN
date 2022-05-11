@@ -3,9 +3,7 @@
 {% load mathfilters %}
 {% load static %}
 {% block title %}{{ monhoc.TenMH }} | {{ monhoc.get_Khoa_display }}{% endblock %}
-{% block title_MH %}
-    {{ monhoc.TenMH }}
-{% endblock %}
+{% block content_title %}Môn học {{ monhoc.TenMH }}{% endblock %}
 {% block content %}
 <script>
 function textAreaAdjust(element) {
@@ -61,11 +59,13 @@ function textAreaAdjust(element) {
                         <small class="card-text card-subtitle text-muted">
                             đăng bởi
                                 <span class="text-danger">
-                                    {% if item.user.first_name %}
-                                    {{item.user.first_name}}
-                                    {% else %}
-                                    {{item.user.username}}
-                                    {% endif %}
+                                    <a href="/profile/{{item.user.username}}" style="color:#D34836;">
+                                        {% if item.user.first_name %}
+                                        {{item.user.first_name}}
+                                        {% else %}
+                                        {{item.user.username}}
+                                        {% endif %}
+                                    </a>
                                 </span>
                             lúc {{item.date |date:"H:i"}}
                             ngày {{item.date |date:"d"}}
@@ -114,12 +114,13 @@ function textAreaAdjust(element) {
                 <div class="ms-2 me-auto" style="padding:0 10px;">
                     <div>
                         <b>
-                            {% if cmt.user.first_name %}
-                            {{cmt.user.first_name}}
-                            {% else %}
-                            {{cmt.user.username}}
-                            {% endif %}
-                            
+                            <a href="/profile/{{cmt.user.username}}" style="color:#343a40;">
+                                {% if cmt.user.first_name %}
+                                {{cmt.user.first_name}}
+                                {% else %}
+                                {{cmt.user.username}}
+                                {% endif %}
+                            </a>
                         </b>
                         <span class='font-weight-light font-italic'>
                             {{cmt.ThoiGian | days_until }} trước
