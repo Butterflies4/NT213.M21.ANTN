@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'mathfilters',
     'ckeditor',
     'addthis',
+    'django_otp',
+    'django_otp.plugins.otp_totp',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_otp.middleware.OTPMiddleware',
 ]
 
 ROOT_URLCONF = 'FINALPROJECT.urls'
@@ -147,6 +150,16 @@ STATIC_ROOT = BASE_DIR/"static"
 MEDIA_URL  = '/media/'
 MEDIA_ROOT = BASE_DIR/"media" 
 
+#security 
+#SECURE_SSL_REDIRECT = True
+#SESSION_COOKIE_SECURE = True
+#SESSION_COOKIE_SECURE = True
+#SECURE_BROWSER_XSS_FILTER = True
+##SECURE_HSTS_SECONDS = 31536000
+#SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+#SECURE_HSTS_PRELOAD = True
+#SECURE_CONTENT_TYPE_NOSNIFF = True
+#CSRF_COOKIE_SECURE = True
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

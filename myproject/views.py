@@ -24,6 +24,7 @@ import shutil
 from django.http import HttpResponseRedirect,HttpResponse
 from wsgiref.util import FileWrapper
 from django.db.models import Sum
+from django.http import JsonResponse 
 
 # Tạo trang chủ
 def home_view(request):
@@ -118,6 +119,7 @@ def MonHoc_show(request, MaMH):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(request.path)
+            #return JsonResponse({'bool':True})
     # Lấy thông tin của môn học
     monhoc.len = data.count
     monhoc.download = sum(list(map(lambda item: item[0], data.values_list('LuotTai'))))
