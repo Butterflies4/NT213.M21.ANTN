@@ -5,29 +5,29 @@
 {% block TieuDe %}Tổng Quan{% endblock %}
 {% block content %}
 {% if messages %}
-<div class="modal" tabindex="-1" id="thongbao">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-danger">THÔNG BÁO</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <ul class="messages"></ul>
-                {% for message in messages %}
-                <li class="text-dark" {% if message.tags %} class="{{ message.tags }}" {% endif %}
-                    style="list-style: none;">{{ message }}</li>
-                {% endfor %}
-                </ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+        <div class="modal" tabindex="-1" id="thongbao">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-danger">THÔNG BÁO</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="messages"></ul>
+                        {% for message in messages %}
+                        <li class="text-dark" {% if message.tags %} class="{{ message.tags }}" {% endif %}
+                            style="list-style: none;">{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 {% endif %}
 <div class="row TongQuan">
     <div class="col-6 col-md-3">

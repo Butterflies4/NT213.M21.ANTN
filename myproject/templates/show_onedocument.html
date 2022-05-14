@@ -3,26 +3,30 @@
 {% load myfilters %}
 {% load static %}
 {% block title %}{{tai_lieu.TenTL}} | {{tai_lieu.MaMH.TenMH}}{% endblock %}
-{% block title_MH %}{{tai_lieu.TenTL}}{% endblock %}
+{% block content_title %}{{ tai_lieu.TenTL }}{% endblock %}
 {% block content %}
 <script>
-function textAreaAdjust(element) {
-  element.style.height = "1px";
-  element.style.height = element.scrollHeight+"px";
-}
+    function textAreaAdjust(element) {
+        element.style.height = "1px";
+        element.style.height = element.scrollHeight+"px";
+    }
 </script>
 
 <div class="tailieucuthe row rounded pt-3 pb-3">
 	<div class="col-12 col-sm-4 ">
 		<div class="creator">
-			<p style="margin-bottom: 2rem; text-shadow: 2px 2px 5px red; font-size: 20px; text-align: center;">Thông tin cơ bản</p>
+            <div class="pl-3">
+                <p style="margin-bottom: 2rem; text-shadow: 2px 2px 5px red; font-size: 20px; padding: auto;">Thông tin cơ bản</p>
+            </div>
+			
 			<div id="avatar" style="margin-bottom: 1rem; text-align: center;">
 				<img src="{{ tai_lieu.user.last_name}}" style="display: block; margin: auto; width: 50%; max-width: 100px;" alt="">&nbsp;
-				<span>{% if tai_lieu.user.first_name %}
+				<span><a href="/profile/{{tai_lieu.user.username}}" style="color:#D34836;">
+                    {% if tai_lieu.user.first_name %}
                     {{tai_lieu.user.first_name}}
                     {% else %}
                     {{tai_lieu.user.username}}
-                    {% endif %}</span>
+                    {% endif %}</a></span>
 			</div>
             <ul class="list-group">
                 <li class="list-group-item bg-light border-0 shadow-none d-flex align-items-center">
@@ -157,13 +161,16 @@ function textAreaAdjust(element) {
         <div class="col-11">
             <div class="card1" style="margin-bottom: 1rem;  background-color: rgb(235, 235, 235);">
                 <div class="ms-2 me-auto" style="font-size: 16px; padding: 10px;">
-                    <div class="fw-bold" style="font-size: 16px;"><b style="font-size: 20px;">
-					{% if cmt.user.first_name %}
-                    {{cmt.user.first_name}}
-                    {% else %}
-                    {{cmt.user.username}}
-                    {% endif %}
-					</b>{{cmt.ThoiGian}}
+                    <div class="fw-bold" style="font-size: 16px;">
+                        <b style="font-size: 20px;">
+                        <a href="/profile/{{cmt.user.username}}" style="color:#343a40;">
+                            {% if cmt.user.first_name %}
+                            {{cmt.user.first_name}}
+                            {% else %}
+                            {{cmt.user.username}}
+                            {% endif %}
+                        </a>
+					    </b>{{cmt.ThoiGian}}
                     </div>
                     {{cmt.NoiDung|linebreaks}}
                 </div>

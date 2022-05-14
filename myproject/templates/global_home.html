@@ -3,7 +3,6 @@
 {% load static %}
 {% block script_head %}
 <link rel="stylesheet" href="{% static 'css/web.css' %}">
-
 <!-- Link Font chữ Open Sans-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,12 +36,11 @@
 {% endblock content_thongbao %}
 
 {% block content_top %}
-<!-- Navbar -->
+{% endblock %}
 
-<!--Nội dung-->
+{% block content_main %}
 <section>
     <div class="container-fluid padding">
-
         <div id="background" class="row justify-content-center h-100" >
             <div class="col-12 col-md-8 p-4">
                 <h2 style="font-size: 54px; line-height: 85px; text-align:center">
@@ -97,7 +95,4 @@
         </div>
     </div>
 </section>
-{% endblock %}
-{% block content_main %}
-
 {% endblock content_main %}

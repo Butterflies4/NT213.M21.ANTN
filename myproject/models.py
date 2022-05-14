@@ -6,6 +6,7 @@ from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 from django.http import request
 from unidecode import unidecode
+from django import forms
 
 
 class MonHoc(models.Model):
@@ -92,8 +93,8 @@ class CommentTL(models.Model):
     """
     Lưu dữ liệu về những comment dữ liệu 
     """
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    MaTL = models.ForeignKey(TaiLieu,on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    MaTL = models.ForeignKey(TaiLieu, on_delete=models.CASCADE)
     ThoiGian = models.DateTimeField(auto_now_add=True)
     NoiDung = models.TextField()
 
@@ -102,21 +103,24 @@ class CommentMH(models.Model):
     """
     Lưu dữ liệu về những comment môn học 
     """
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    MaMH = models.ForeignKey(MonHoc,on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    MaMH = models.ForeignKey(MonHoc, on_delete=models.CASCADE)
     ThoiGian = models.DateTimeField(auto_now_add=True)
     NoiDung = models.TextField()
 
+
 class RecentView(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    MaTL = models.ForeignKey(TaiLieu,on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    MaTL = models.ForeignKey(TaiLieu, on_delete=models.CASCADE)
     ThoiGian = models.DateTimeField(auto_now_add=True)
 
+
 class ThongBao(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     ThoiGian = models.DateTimeField(auto_now_add=True)
     NoiDung = models.TextField()
     Xem = models.BooleanField(default=False)
+
 
 class InformationUser(models.Model):
     User = models.ForeignKey(User, on_delete=models.CASCADE)

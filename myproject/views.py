@@ -26,6 +26,21 @@ from wsgiref.util import FileWrapper
 from django.db.models import Sum
 from django.http import JsonResponse 
 
+
+# Save Comment
+def save_comment(request):
+    if request.method == 'POST':
+        commentMH=request.POST['NoiDung']
+        MaMH=request.POST['MaMH']
+        user=request.user
+        CommentMH.objects.create(
+            NoiDung=commentMH,
+            MaMH=MaMH,
+            user=user,
+            ThoiGian=datetime.datetime.now()
+        )
+    return JsonResponse({'bool':True})
+
 # Tạo trang chủ
 def home_view(request):
     return render(
@@ -100,7 +115,7 @@ def MonHocList_view(request, NhomMH, Khoa):
 # Trang mô tả tổng quát về môn học và show một ít tài liệu
 def MonHoc_show(request, MaMH):
     # Lấy comment của bài môn học, và xếp theo thời gian
-    comment = CommentMH.objects.filter(MaMH=MaMH).order_by("-ThoiGian")
+    #comment = CommentMH.objects.filter(MaMH=MaMH).order_by("-ThoiGian")
     # Lấy một ít tài liệu để show
     data = TaiLieu.objects.filter(MaMH=MaMH).filter(KiemDuyet=True)
     tailieu = {
@@ -112,14 +127,13 @@ def MonHoc_show(request, MaMH):
     # Nhận thông tin về môn học
     monhoc = get_object_or_404(MonHoc, MaMH=MaMH)
     # Tạo form bình luận cho user
-    form = CommentMHForm()
+    #form = CommentMHForm()
     # Nhận bình luận của user
-    if request.method == 'POST':
-        form = CommentMHForm(request.POST, user=request.user, MaMH=monhoc)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(request.path)
-            #return JsonResponse({'bool':True})
+    #if request.method == 'POST':
+    #    form = CommentMHForm(request.POST, user=request.user, MaMH=monhoc)
+    #    if form.is_valid():
+    #        form.save()
+    #        return HttpResponseRedirect(request.path)
     # Lấy thông tin của môn học
     monhoc.len = data.count
     monhoc.download = sum(list(map(lambda item: item[0], data.values_list('LuotTai'))))
@@ -130,8 +144,8 @@ def MonHoc_show(request, MaMH):
         {
             'monhoc': monhoc,
             'tailieu': tailieu,
-            'comment': comment,
-            'form': form,
+            #'comment': comment,
+            #'form': form,
         },
     )
 
@@ -210,10 +224,9 @@ def one_document_view(request, slug):
     )
 
 # Trang thông báo lỗi 
-def error(request, *args, **kwargs):
+def error404(request, *args, **kwargs):
     return render(
-        request,
-        '404.html'
+        request,'404.html'
     )
 
 # Trang đăng kí
@@ -230,7 +243,6 @@ def DangKy_view(request):
     return render(
         request,
         'global_DangKy.html',
-        # 'global_DangKy copy.html',
         {'form': form}
     )
 
@@ -361,7 +373,6 @@ def DongGopTL_view(request):
         return HttpResponseRedirect(reverse('DangNhap_view'))
     # Xử lý form 
     if request.method == 'POST':
-
         # Lấy thông tin từ form
         form = ThemTaiLieu(request.POST)
         if form.is_valid():
@@ -547,7 +558,6 @@ def ThanhVien_view(request):
         }
     )
 
-
 def BinhLuan_view(request):
     if not request.user.is_active:
         return HttpResponseRedirect(reverse('DangNhap_view'))
@@ -592,12 +602,34 @@ def ThongTinCaNhan_view(request):
             infoUser.Bio = request.POST['Bio']
             infoUser.save()
             messages.add_message(request, messages.INFO, 'Cập nhật thông tin thành công')
-
     return render(
         request,
         'db_ThongTinCaNhan.html',
         {
             "form": form,
-            "data": InformationUser.objects.get_or_create(User=request.user),
+            "data": InformationUser.objects.get(User=request.user),
+        }
+    )
+
+# Thông tin cá nhân
+def show_profile_public(request, username):
+    # return render(
+    #     request,
+    #     'db_home.html',
+    #     {
+    #         "data": InformationUser.objects.get(User=username),
+    #     }
+    # )
+    # ThongBao.objects.get(pk=username)
+    # # print(InformationUser.objects.get_or_create(User=username))
+    # return render(
+    #     request,
+    #     'show_profile.html',
+    # )
+    return render(
+        request,
+        'show_profile.html',
+        {
+            "data": InformationUser.objects.get(User=User.objects.get(username=username)),
         }
     )
