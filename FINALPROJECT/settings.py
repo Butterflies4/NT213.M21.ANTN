@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-ln6#5=u=x#)+x^z=8q8#&1lhi*+nzyy6q7_wjjfuy1kd2k%kb%'
-
+#GOOGLE_RECAPTCHA_SECRET_KEY = '6Ld0Ke0fAAAAALlvPMRpsszIgoimDkuuBu12sNSP'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 # DEBUG = True
@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django_otp',
     'django_otp.plugins.otp_totp',
     'crispy_forms',
+    #'captcha',
+    'axes',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -61,7 +63,19 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_otp.middleware.OTPMiddleware',
+    'axes.middleware.AxesMiddleware',
 ]
+AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesBackend',
+]
+# Disable Django-axes
+AXES_ENABLED = True
+# admin number of login attempts
+AXES_FAILURE_LIMIT = 5
+
+# lock is only enabled for admin site
+AXES_ONLY_ADMIN_SITE = True
+AXES_USERNAME_FORM_FIELD = 'username'
 
 ROOT_URLCONF = 'FINALPROJECT.urls'
 

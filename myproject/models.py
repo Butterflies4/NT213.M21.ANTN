@@ -6,8 +6,6 @@ from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 from django.http import request
 from unidecode import unidecode
-from django import forms
-
 
 class MonHoc(models.Model):
     """

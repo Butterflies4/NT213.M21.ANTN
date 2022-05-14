@@ -14,6 +14,11 @@ from django.core.exceptions import ObjectDoesNotExist
 import re
 from unidecode import unidecode
 from icecream import ic
+from django import forms
+from captcha.fields import CaptchaField
+
+#class MyForm(forms.Form):
+    #captcha = CaptchaField()
 
 
 class CommentMHForm(forms.ModelForm):
