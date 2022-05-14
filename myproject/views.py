@@ -257,8 +257,7 @@ def DangKy_view(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.INFO,
-                                 'Đăng kí thành công. Đăng nhập để tiếp tục')
+            messages.add_message(request, messages.INFO,'Đăng kí thành công. Đăng nhập để tiếp tục')
             return HttpResponseRedirect(reverse('DangNhap_view'))
     else:
         form = RegisterForm()

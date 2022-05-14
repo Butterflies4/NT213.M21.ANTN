@@ -101,6 +101,17 @@ function textAreaAdjust(element) {
             <!-- <button type="submit" onclick="loadDoc()" class="btn btn-secondary float-right" style="margin-bottom: 1rem;" value="Bình luận"></button> -->
         </form>
         <script>
+            function escapeHtml(text) {
+                var map = {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#039;'
+                };
+                
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+            }
             function loadDoc() {
                 form = document.getElementById('form_comment');
                 const xhttp = new XMLHttpRequest();
@@ -115,7 +126,7 @@ function textAreaAdjust(element) {
                                         + '<div class="ms-2 me-auto" style="padding:0 10px;"><div><b>'
                                         + '<a href="/profile/'+ lst[0] +'" style="color:#343a40;">'+lst[1] +'</a></b>'
                                         + '<span class="font-weight-light font-italic"> 0 phút trước</span></div><p>'
-                                        + document.getElementById("id_NoiDung").value
+                                        + escapeHtml(document.getElementById("id_NoiDung").value)
                                         + '</p></div></div></div></div>';
                         show_comments.innerHTML = elementComment + show_comments.innerHTML;
                         document.getElementById("id_NoiDung").value = '';

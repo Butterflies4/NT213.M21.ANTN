@@ -24,7 +24,7 @@ admin.site.__class__ = OTPAdminSite
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('myproject.urls')),
-    #path('captcha/', include('captcha.urls')),
+    path('captcha/', include('captcha.urls')),
 ]
 
 """ handler404 = 'myproject.views.error'
