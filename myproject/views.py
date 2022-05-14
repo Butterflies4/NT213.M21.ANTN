@@ -27,20 +27,6 @@ from django.db.models import Sum
 from django.http import JsonResponse 
 
 
-# Save Comment
-def save_comment(request):
-    if request.method == 'POST':
-        commentMH=request.POST['NoiDung']
-        MaMH=request.POST['MaMH']
-        user=request.user
-        CommentMH.objects.create(
-            NoiDung=commentMH,
-            MaMH=MaMH,
-            user=user,
-            ThoiGian=datetime.datetime.now()
-        )
-    return JsonResponse({'bool':True})
-
 # Tạo trang chủ
 def home_view(request):
     return render(
@@ -115,7 +101,7 @@ def MonHocList_view(request, NhomMH, Khoa):
 # Trang mô tả tổng quát về môn học và show một ít tài liệu
 def MonHoc_show(request, MaMH):
     # Lấy comment của bài môn học, và xếp theo thời gian
-    #comment = CommentMH.objects.filter(MaMH=MaMH).order_by("-ThoiGian")
+    comment = CommentMH.objects.filter(MaMH=MaMH).order_by("-ThoiGian")
     # Lấy một ít tài liệu để show
     data = TaiLieu.objects.filter(MaMH=MaMH).filter(KiemDuyet=True)
     tailieu = {
@@ -127,13 +113,13 @@ def MonHoc_show(request, MaMH):
     # Nhận thông tin về môn học
     monhoc = get_object_or_404(MonHoc, MaMH=MaMH)
     # Tạo form bình luận cho user
-    #form = CommentMHForm()
+    form = CommentMHForm()
     # Nhận bình luận của user
-    #if request.method == 'POST':
-    #    form = CommentMHForm(request.POST, user=request.user, MaMH=monhoc)
-    #    if form.is_valid():
-    #        form.save()
-    #        return HttpResponseRedirect(request.path)
+    if request.method == 'POST':
+        form = CommentMHForm(request.POST, user=request.user, MaMH=monhoc)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(request.path)
     # Lấy thông tin của môn học
     monhoc.len = data.count
     monhoc.download = sum(list(map(lambda item: item[0], data.values_list('LuotTai'))))
@@ -144,8 +130,8 @@ def MonHoc_show(request, MaMH):
         {
             'monhoc': monhoc,
             'tailieu': tailieu,
-            #'comment': comment,
-            #'form': form,
+            'comment': comment,
+            'form': form,
         },
     )
 
