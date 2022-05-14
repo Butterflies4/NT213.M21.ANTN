@@ -36,6 +36,9 @@ from wsgiref.util import FileWrapper
 from django.db.models import Sum
 from django.contrib.auth.forms import PasswordResetForm
 
+from django.contrib.auth.models import AbstractUser
+
+
 # Tạo trang chủ
 
 
@@ -685,7 +688,7 @@ def password_reset_request(request):
                     }
                     email = render_to_string(email_template_name, c)
                     try:
-                        send_mail(subject, email, '19520220@gm.uit.edu.vn',
+                        send_mail(subject, email, 'butterflies.nnpt@gmail.com',
                                   [user.email], fail_silently=False)
                     except BadHeaderError:
                         return HttpResponse('Invalid header found.')
