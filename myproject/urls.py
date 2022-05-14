@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from myproject import views
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
@@ -7,6 +7,7 @@ from django.views.static import serve
 from django.conf.urls import url
 
 urlpatterns = [
+    #     path('ERROR', views.error, name="error"),
     path("subjects/<slug:MaMH>/", views.MonHoc_show, name=""),
     path("subjects/<slug:MaMH>/<slug:LoaiTL>/",
          views.MonHoc_LoaiTL_show, name="MonHoc_LoaiTL_show"),
@@ -44,6 +45,14 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', serve,
         {'document_root': settings.MEDIA_ROOT}),
     # url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+    # path('accounts/', include('django.contrib.auth.urls')),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(
+        template_name='password/password_reset_done.html'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
+        template_name="password/password_reset_confirm.html"), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(
+        template_name='password/password_reset_complete.html'), name='password_reset_complete'),
+    path('password_reset/', views.password_reset_request, name="password_reset"),
 ]
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

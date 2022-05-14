@@ -46,7 +46,11 @@ INSTALLED_APPS = [
     'addthis',
     'django_otp',
     'django_otp.plugins.otp_totp',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -176,3 +180,10 @@ CKEDITOR_CONFIGS = {
         'width': '100%',
     }
 }
+# SMTP Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'Butterflies.NNPT@gmail.com'
+EMAIL_HOST_PASSWORD = '1s@Passw0rd'
