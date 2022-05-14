@@ -47,10 +47,14 @@ INSTALLED_APPS = [
     'django_otp',
     'django_otp.plugins.otp_totp',
     'crispy_forms',
+    'axes',
 ]
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
+AUTHENTICATION_BACKENDS = [
+    # AxesBackend should be the first backend in the AUTHENTICATION_BACKENDS list.
+    'axes.backends.AxesBackend',
+    # Django ModelBackend is the default authentication backend.
+    'django.contrib.auth.backends.ModelBackend',
+]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -61,7 +65,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_otp.middleware.OTPMiddleware',
+    'axes.middleware.AxesMiddleware',
 ]
+#Disable Django-axes
+AXES_ENABLED=True
+#admin number of login attempts
+AXES_FAILURE_LIMIT = 5
+
+#lock is only enabled for admin site
+AXES_ONLY_ADMIN_SITE=True
+AXES_USERNAME_FORM_FIELD = 'login'
+
 
 ROOT_URLCONF = 'FINALPROJECT.urls'
 
@@ -69,7 +83,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'templates'
+            BASE_DIR/ 'templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -149,20 +163,10 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR/"static"
-MEDIA_URL = '/media/'
+STATIC_ROOT = BASE_DIR/"static" 
+MEDIA_URL  = '/media/'
 MEDIA_ROOT = BASE_DIR/"media"
 
-# security
-#SECURE_SSL_REDIRECT = True
-#SESSION_COOKIE_SECURE = True
-#SESSION_COOKIE_SECURE = True
-SECURE_BROWSER_XSS_FILTER = True
-##SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-#SECURE_HSTS_PRELOAD = True
-#SECURE_CONTENT_TYPE_NOSNIFF = True
-#CSRF_COOKIE_SECURE = True
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -175,15 +179,8 @@ CKEDITOR_CONFIGS = {
         ],
         'removePlugins': 'stylesheetparser',
         'allowedContent': True,
-        'disallowedContent': 'script',
+        'disallowedContent' : 'script',
         'height': 300,
         'width': '100%',
     }
 }
-# SMTP Configuration
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'Butterflies.NNPT@gmail.com'
-EMAIL_HOST_PASSWORD = '1s@Passw0rd'
