@@ -1,6 +1,8 @@
 from django import template
 from datetime import datetime
 from bs4 import BeautifulSoup
+from myproject.templatetags.xssfilter import XssHtml
+
 register = template.Library()
 
 @register.filter(name='safe_text')
@@ -23,3 +25,10 @@ def days_until(date):
     if delta < 10: return str(delta) + " tuần"
     delta = int(delta // 4)
     return str(delta) + " tháng"
+
+@register.filter 
+def xss_filter(htmlString):
+    parser = XssHtml()
+    parser.feed(htmlString)
+    parser.close()
+    return parser.getHtml()

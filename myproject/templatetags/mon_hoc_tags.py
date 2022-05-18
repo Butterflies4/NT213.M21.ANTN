@@ -15,7 +15,7 @@ def get_recent():
 
 @register.simple_tag()
 def get_thongbao(user):
-    return ThongBao.objects.filter(Xem=False).filter(user=user).order_by("-ThoiGian")[:5]
+    return ThongBao.objects.filter(Xem=False).filter(user=user).order_by("-ThoiGian")
 @register.simple_tag()
 def get_thongbao_count(user):
     return ThongBao.objects.filter(Xem=False).filter(user=user).count()

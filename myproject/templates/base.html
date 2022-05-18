@@ -123,11 +123,11 @@
 								<span id="number_mess" class="badge rounded-pill badge-notification bg-success">{{ tbc }}</span>
 							{% endif %}
 						</a>
-						<div class="dropdown-menu dropdown-menu-right dropdown-default">
+						<div class="dropdown-menu dropdown-menu-right dropdown-default" style="height:260px; overflow: auto">
 							{% get_thongbao user as tb %}
 							{% for item in tb %}
 							<!-- {% if item.user == user%} -->
-								<a id="{{item.pk}}" onclick="myFunction(id)" class="dropdown-item">{{item.NoiDung}}</a>
+								<a id="{{item.pk}}" onclick="myFunction(id)" class="dropdown-item" style="cursor: pointer; white-space: normal;">{{item.NoiDung}}</a>
 							<!-- {% endif %} -->
 							{% endfor %}
 						</div>
@@ -237,7 +237,7 @@
 		<footer class="justify-content-center row bg-dark" style="color: white; margin: 0; padding: 0;" >
 			<!-- Copyright -->
 			<div class="col-11" style="border-top: solid 2px #42A272; margin: 30px 0 15px 0; padding: 5px 0;">
-				© 2021 Butterflies - NT208.ANTN
+				© 2022 Butterflies - NT213.M21.ANTN
 			</div>
 			<!-- Copyright -->
 		</footer>

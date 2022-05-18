@@ -1,4 +1,5 @@
 {% extends "dashboard_base.html" %} 
+{% load myfilters %}
 {% block title %}{{ form.TenTL }} | Duyệt tài liệu{% endblock title %}
 {% block TrangDTL %}horizontal{% endblock%}
 {% block TieuDe %}Xem trước tài liệu{% endblock %}
@@ -44,7 +45,7 @@
         </div>
         <div class="form-group row">
             <label class="align-self-center col-3 col-lg-2 font-weight-bold "> Mô tả:</label>    
-            <div class="align-self-center col-9 col-lg-10">{{ form.MoTa|safe }}</div>
+            <div class="align-self-center col-9 col-lg-10">{{ form.MoTa| xss_filter |safe }}</div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 font-weight-bold "> Tệp tài liệu:</label>    

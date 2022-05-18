@@ -21,14 +21,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-ln6#5=u=x#)+x^z=8q8#&1lhi*+nzyy6q7_wjjfuy1kd2k%kb%'
-GOOGLE_RECAPTCHA_SECRET_KEY = '6Ld0Ke0fAAAAALlvPMRpsszIgoimDkuuBu12sNSP'
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LcAv_sfAAAAAGqnfOmYHyvTnLK-nIZJh-5-c8da'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = True
+#DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 # ALLOWED_HOSTS = []
-
+CSRF_TRUSTED_ORIGINS = ['https://cfc92e8c9c7f4d91b20c0824ee655715-0c9f5765-vm-80.vlab2.uit.edu.vn']
 
 # Application definition
 
@@ -99,7 +99,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'FINALPROJECT.wsgi.application'
-
+#WSGI_APPLICATION = 'application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
