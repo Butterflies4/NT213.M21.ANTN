@@ -119,7 +119,7 @@ def MonHocList_view(request, NhomMH, Khoa):
             'nhom_mh': nhom_mh,
             'num': num
         },
-    )
+   )
 
 # Trang mô tả tổng quát về môn học và show một ít tài liệu
 
@@ -219,15 +219,14 @@ def one_document_view(request, slug):
         # Lưu form bình luận
         if form.is_valid():
             # Cập nhập thông báo cho người đăng
-            if request.user != tai_lieu.user:
-                thongbao = ThongBao.objects.create(user=tai_lieu.user)
-                temp = thongbao
-                temp.NoiDung = str(
-                    request.user) + " đã bình luận về tài liệu " + tai_lieu.TenTL + " của bạn"
-                if request.user.first_name:
-                    temp.NoiDung = str(request.user.first_name) + \
-                        " đã bình luận về tài liệu " + tai_lieu.TenTL + " của bạn"
-                temp.save()
+            thongbao = ThongBao.objects.create(user=tai_lieu.user)
+            temp = thongbao
+            temp.NoiDung = str(
+                request.user) + " đã bình luận về tài liệu " + tai_lieu.TenTL + " của bạn"
+            if request.user.first_name:
+                temp.NoiDung = str(request.user.first_name) + \
+                    " đã bình luận về tài liệu " + tai_lieu.TenTL + " của bạn"
+            temp.save()
             form.save()
     # Load form bình luận cho các user
     form = CommentTLForm()
@@ -693,11 +692,12 @@ def password_reset_request(request):
                         "uid": urlsafe_base64_encode(force_bytes(user.pk)),
                         "user": user,
                         'token': default_token_generator.make_token(user),
-                        'protocol': 'https',
+                        'protocol': 'http',
                     }
                     email = render_to_string(email_template_name, c)
                     try:
-                        send_mail(subject, email, 'butterflies.nnpt@gmail.com', [user.email], fail_silently=False)
+                        send_mail(subject, email, 'butterflies.nnpt@gmail.com',
+                                  [user.email], fail_silently=False)
                     except BadHeaderError:
                         return HttpResponse('Invalid header found.')
                     return redirect("/password_reset/done/")

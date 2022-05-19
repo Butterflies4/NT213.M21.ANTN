@@ -14,11 +14,6 @@ from django.core.exceptions import ObjectDoesNotExist
 import re
 from unidecode import unidecode
 from icecream import ic
-from django import forms
-from captcha.fields import CaptchaField
-
-class MyForm(forms.Form):
-    captcha = CaptchaField()
 
 
 class CommentMHForm(forms.ModelForm):
@@ -77,12 +72,16 @@ class RegisterForm(forms.Form):
         if 'password1' in self.cleaned_data:
             password1 = self.cleaned_data['password1']
             password2 = self.cleaned_data['password2']
+            if not re.fullmatch(r'^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*?[A-Z])(?=.*\d)[a-zA-Z0-9!@£$%^&*()_+={}?:~\[\]]+$', password1):
+                raise forms.ValidationError("Mật khẩu có tối thiểu 8 kí tự\nMật khẩu bắt buộc có 1 ký tự in hoa, 1 ký tự in thường và 1 chữ số")
             if password1 == password2 and password1:
                 return password2
         raise forms.ValidationError("Mật khẩu không khớp")
 
     def clean_username(self):
         username = self.cleaned_data['username']
+        if len(username)<8: 
+            raise forms.ValidationError("Tên tài khoản có độ dài tối thiểu là 8 ")
         if not re.search(r'^\w+$', username):
             raise forms.ValidationError("Tên tài khoản có kí tự đặc biệt")
         try:
@@ -91,20 +90,11 @@ class RegisterForm(forms.Form):
             return username
         raise forms.ValidationError("Tài khoản đã tồn tại")
 
-    def clean_email(self):
-        email = self.cleaned_data['email']
-        try:
-            User.objects.get(email=email)
-        except ObjectDoesNotExist:
-            return email
-        raise forms.ValidationError(
-            "Email này đã được sử dụng cho tài khoản khác. Vui lòng sử dụng email khác!")
-
     def save(self):
         User.objects.create_user(username=self.cleaned_data['username'],
                                  email=self.cleaned_data['email'],
                                  password=self.cleaned_data['password1'],
-                                 last_name="/media/avatar/defaut.jpg")
+                                 last_name ="/media/avatar/defaut.jpg")
         tmp = User.objects.get(username=self.cleaned_data['username'])
         InformationUser.objects.create(User=tmp)
 

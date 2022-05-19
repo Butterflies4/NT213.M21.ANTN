@@ -23,13 +23,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ln6#5=u=x#)+x^z=8q8#&1lhi*+nzyy6q7_wjjfuy1kd2k%kb%'
 GOOGLE_RECAPTCHA_SECRET_KEY = '6LcAv_sfAAAAAGqnfOmYHyvTnLK-nIZJh-5-c8da'
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = False
-DEBUG = True
+DEBUG = False
+#DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["cfc92e8c9c7f4d91b20c0824ee655715-0c9f5765-vm-80.vlab2.uit.edu.vn", "127.0.0.1"]
 # ALLOWED_HOSTS = []
 CSRF_TRUSTED_ORIGINS = ['https://cfc92e8c9c7f4d91b20c0824ee655715-0c9f5765-vm-80.vlab2.uit.edu.vn']
 
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'Butterflies.NNPT@gmail.com'
+EMAIL_HOST_PASSWORD = '1s@Passw0rd'
 # Application definition
 
 INSTALLED_APPS = [
